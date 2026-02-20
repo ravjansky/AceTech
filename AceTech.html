@@ -40,6 +40,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- Favicon (multiple formats, browser picks what it supports) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+    <link rel="icon" type="image/avif" href="favicon.avif" sizes="32x32">
+    
+    <!-- Webclip for iOS home screen (must be PNG) -->
+    <link rel="apple-touch-icon" href="webclip.png" sizes="256x256">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -2041,7 +2050,7 @@
                         // draw particle dot
                         ctx.beginPath();
                         ctx.arc(sx, sy, 1.5 * s, 0, Math.PI * 2);
-                        ctx.fillStyle = 'rgba(225,29,42,' + (a * 0.6) + ')';
+                        ctx.fillStyle = 'rgba(225,29,42,' + (a * 0.9 + 0.1) + ')';
                         ctx.fill();
                     }
 
@@ -2592,7 +2601,7 @@
                         for (var t = 0; t < textElements.length; t++) {
                             textElements[t].classList.remove('is-scrolling');
                         }
-                    }, 300);
+                    }, 0);
                 }
                 window.addEventListener('scroll', onScrollActivity, { passive: true });
 
