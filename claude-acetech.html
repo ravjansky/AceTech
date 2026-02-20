@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acetech Repair & Phones Accessories | Premium Device Repair in Olongapo City</title>
+    <meta name="description"
+        content="Acetech Repair and Phones Accessories — Olongapo City's trusted specialist for micro-soldering, logic board repair, LCD resurrection & more. Located at 104 Rizal Avenue Extension, East Tapinac.">
+    <meta name="keywords"
+        content="phone repair Olongapo, micro-soldering Zambales, logic board repair East Tapinac, screen replacement Olongapo City, Acetech Repair">
+    <link rel="canonical" href="https://acetechrepair.com">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Acetech Repair & Phone Accessories | Olongapo City">
+    <meta property="og:description"
+        content="Precision device repair — micro-soldering, board-level diagnostics, LCD resurrection. Serving Olongapo City, Subic & Zambales.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acetechrepair.com">
+    <meta property="og:image" content="https://acetechrepair.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Acetech Repair and Phones Accessories",
+      "image": "https://acetechrepair.com/logo.png",
+      "@id": "https://acetechrepair.com",
+      "url": "https://acetechrepair.com",
+      "telephone": "09684589577",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "104 Rizal Avenue Extension, East Tapinac",
+        "addressLocality": "Olongapo City",
+        "addressRegion": "Zambales",
+        "postalCode": "2200",
+        "addressCountry": "PH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 14.8276663,
+        "longitude": 120.2798901
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday"], "opens": "10:30", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "10:30", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "10:00", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "21:00" }
+      ],
+      "sameAs": ["https://www.facebook.com/Acetech07"]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP + ScrollTrigger + Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        /* ============================================
+           FONT FACE — AERO (Custom)
+           ============================================ */
+        @font-face {
+            font-family: 'Aero';
+            src: url('Aero.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ============================================
+           CSS CUSTOM PROPERTIES
+           ============================================ */
+        :root {
+            --deep-black: #0B0B0B;
+            --red: #E11D2A;
+            --white: #FFFFFF;
+            --slate: #708090;
+            --gunmetal: #2A3439;
+            --dark-card: #111111;
+            --font-display: 'Aero', 'JetBrains Mono', sans-serif;
+            --font-body: 'JetBrains Mono', monospace;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--deep-black);
+            color: var(--white);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .hero-title,
+        .section-title,
+        h1,
+        h2 {
+            font-family: var(--font-display);
+        }
+
+        /* ============================================
+           BOOT LOADER
+           ============================================ */
+        #boot-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: var(--deep-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.4s ease;
+        }
+
+        #boot-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .boot-text {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--red);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .loader {
+            --s: 25px;
+            --g: 5px;
+            width: calc(3*(1.353*var(--s) + var(--g)));
+            display: grid;
+            justify-items: end;
+            aspect-ratio: 3;
+            overflow: hidden;
+            --_m: linear-gradient(90deg, #0000, #000 15px calc(100% - 15px), #0000);
+            -webkit-mask: var(--_m);
+            mask: var(--_m);
+        }
+
+        .loader:before {
+            content: "";
+            width: 200%;
+            background:
+                linear-gradient(90deg, #E11D2A 50%, #0000 0),
+                conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),
+                    #fff 135deg, #666 0 270deg, #aaa 0);
+            background-blend-mode: multiply;
+            --_m:
+                linear-gradient(to bottom right,
+                    #0000 calc(0.25*var(--s)), #000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)), #0000 0),
+                conic-gradient(from -90deg at right var(--g) bottom var(--g), #000 90deg, #0000 0);
+            -webkit-mask: var(--_m);
+            mask: var(--_m);
+            background-size: calc(100%/3) 100%, calc(100%/6) 100%;
+            -webkit-mask-size: calc(100%/6) 100%;
+            mask-size: calc(100%/6) 100%;
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+            animation: loader-anim 1s infinite linear;
+        }
+
+        @keyframes loader-anim {
+            to {
+                transform: translate(calc(100%/3));
+            }
+        }
+
+        /* ============================================
+           GLITCH GRID TRANSITION
+           ============================================ */
+        #glitch-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #glitch-overlay.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        .glitch-cell {
+            background: var(--deep-black);
+            opacity: 0;
+        }
+
+        /* ============================================
+           CUSTOM CURSOR (Desktop Only)
+           ============================================ */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        @media (pointer: coarse) {
+            #custom-cursor {
+                display: none !important;
+            }
+        }
+
+        .cursor-h-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+        }
+
+        .cursor-v-line {
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--red);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .nav-logo .dot {
+            color: var(--red);
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Menu Morph Button */
+        .menu-morph {
+            position: relative;
+            width: 85px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .morph-circle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--white);
+            border-radius: 50%;
+            left: 0;
+            will-change: transform;
+        }
+
+        .morph-text-container {
+            position: relative;
+            width: 60px;
+            height: 20px;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+
+        .morph-text-container span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-family: var(--font-body);
+        }
+
+        .morph-close-label {
+            transform: translateY(20px);
+        }
+
+        /* Fullscreen Nav Overlay */
+        #nav-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(11, 11, 11, 0.97);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        #nav-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--white);
+            letter-spacing: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--red);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ============================================
+           PAGE CONTAINERS
+           ============================================ */
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ============================================
+           HERO SECTION (1.1)
+           ============================================ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-headline .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+            will-change: transform, opacity;
+        }
+
+        .hero-sub {
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-location {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--red);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--red);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--red);
+            transform: scale(1.03);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--white);
+            transform: scale(1.03);
+        }
+
+        /* ============================================
+           PHONE EFFECT — HERO (FIXED: bigger, centered, eased mask)
+           ============================================ */
+        #phone-effect {
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+            z-index: 1;
+            height: 60vh;
+            width: auto;
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+            #phone-effect {
+                display: none;
+            }
+        }
+
+        #phone-inner-img {
+            width: auto;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        #phone-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* ============================================
+           TRUST STRIP (1.2)
+           ============================================ */
+        #trust-strip {
+            background: #111;
+            border-left: 3px solid var(--red);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trust-track {
+            display: flex;
+            gap: 3rem;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+
+        .trust-item {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+        }
+
+        .trust-item .check {
+            color: var(--red);
+            margin-right: 0.4rem;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ============================================
+           SERVICE GRID — 3D TUNNEL (1.3) — OPTIMIZED
+           ============================================ */
+        #services-section {
+            position: relative;
+            height: 6000px;
+            padding: 0;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        #services-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #svc-hud {
+            position: absolute;
+            inset: 2rem;
+            z-index: 20;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .svc-hud-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .svc-hud-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .svc-hud-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -2px;
+            width: 4px;
+            height: 4px;
+            background: var(--red);
+        }
+
+        .svc-hud-row strong {
+            color: var(--red);
+        }
+
+        #svc-viewport {
+            position: absolute;
+            inset: 0;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        #svc-world {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .svc-3d-item {
+            position: absolute;
+            left: 0;
+            top: 0;
+            backface-visibility: hidden;
+            transform-origin: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .svc-big-text {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 7vw, 5rem);
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(225, 29, 42, 0.55);
+            text-transform: uppercase;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            letter-spacing: 0.08em;
+        }
+
+        .svc-card {
+            width: 340px;
+            background: rgba(8, 8, 8, 0.92);
+            border: 1px solid rgba(225, 29, 42, 0.18);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 0 50px rgba(225, 29, 42, 0.06), 0 20px 60px rgba(0, 0, 0, 0.6);
+            transform: translate(-50%, -50%);
+            position: relative;
+        }
+
+        .svc-card::before,
+        .svc-card::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+        }
+
+        .svc-card::before {
+            top: -1px;
+            left: -1px;
+            border-top: 1px solid rgba(225, 29, 42, 0.5);
+            border-left: 1px solid rgba(225, 29, 42, 0.5);
+        }
+
+        .svc-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 1px solid rgba(225, 29, 42, 0.5);
+            border-right: 1px solid rgba(225, 29, 42, 0.5);
+        }
+
+        .svc-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(225, 29, 42, 0.12);
+            padding-bottom: 0.75rem;
+        }
+
+        .svc-card-id {
+            font-family: var(--font-body);
+            color: var(--red);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .svc-card-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--red);
+            border-radius: 50%;
+            animation: blink-cursor 1.5s step-end infinite;
+        }
+
+        .svc-card-services {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .svc-card-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.35rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-family: var(--font-body);
+        }
+
+        .svc-item-num {
+            color: var(--red);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            min-width: 1.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title .accent {
+            color: var(--red);
+        }
+
+        /* ============================================
+           WHY ACETECH (1.4)
+           ============================================ */
+        #why-section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .why-list li {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .why-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        .bio-card {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            line-height: 2;
+            position: relative;
+        }
+
+        .bio-card::before {
+            content: '■ ACETECH_PROFILE.dat';
+            display: block;
+            font-size: 0.65rem;
+            color: var(--red);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bio-line {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .bio-line .val {
+            color: var(--white);
+        }
+
+        .bio-line .val.blink {
+            animation: blink-cursor 1s step-end infinite;
+        }
+
+        @keyframes blink-cursor {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           SOCIAL PROOF PREVIEW (1.5) — FIXED: no invert
+           ============================================ */
+        #social-proof {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .fb-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* FIXED: Removed invert filter — keeping original FB colors */
+        .fb-embed-wrapper {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #fff;
+        }
+
+        .fb-embed-wrapper iframe {
+            width: 100%;
+            border: none;
+            display: block;
+            height: 680px;
+        }
+
+        /* FIXED: Overlay to prevent cursor/scroll issues on iframes */
+        .fb-embed-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .fb-embed-wrapper:hover .fb-embed-overlay {
+            /* Let clicks through on hover after a deliberate click */
+            pointer-events: none;
+        }
+
+        /* ============================================
+           FINAL CTA STRIP (1.6) — FIXED: Links to Facebook
+           ============================================ */
+        #cta-strip {
+            background: var(--deep-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-headline {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-sub {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .cta-fb-prompt {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .geo-service {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            margin-top: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        /* ============================================
+           PAGE 2 — REPAIR HUB
+           ============================================ */
+        #bento-section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                scroll-snap-type: x mandatory;
+                overflow-x: auto;
+                display: flex;
+                gap: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .bento-card {
+                min-width: 85vw;
+                scroll-snap-align: start;
+            }
+        }
+
+        .bento-card {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .bento-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .bento-card:hover {
+            border-color: rgba(225, 29, 42, 0.3);
+            box-shadow: 0 0 30px rgba(225, 29, 42, 0.1);
+        }
+
+        .bento-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bento-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+        }
+
+        /* FB Portfolio Grid — FIXED: no invert */
+        #fb-portfolio {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fb-masonry {
+            columns: 2;
+            column-gap: 1.5rem;
+        }
+
+        .fb-masonry .fb-embed-wrapper {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ============================================
+           PAGE 3 — INTEL & LOGISTICS
+           ============================================ */
+        #story-section {
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-text {
+            font-size: 0.85rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 2rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .story-contact {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2rem;
+            line-height: 1.8;
+        }
+
+        /* JSON-LD Terminal */
+        #terminal-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terminal-window {
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .terminal-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red {
+            background: #E11D2A;
+        }
+
+        .terminal-dot.yellow {
+            background: #f5c542;
+        }
+
+        .terminal-dot.green {
+            background: #4CAF50;
+        }
+
+        .terminal-title {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            margin-left: 0.5rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: 0.7rem;
+            line-height: 1.8;
+            color: #4CAF50;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: var(--font-body);
+        }
+
+        .terminal-body .json-key {
+            color: var(--red);
+        }
+
+        .terminal-body .json-str {
+            color: #4CAF50;
+        }
+
+        .terminal-body .json-num {
+            color: #00BFFF;
+        }
+
+        /* Map — FIXED: dark without invert, preserves red marker */
+        #map-section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .map-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+        }
+
+        .map-wrapper iframe {
+            /* Dark map without invert — preserves red marker pin */
+            filter: grayscale(1) brightness(0.35) contrast(1.3);
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+        /* ============================================
+           GLOBAL FOOTER
+           ============================================ */
+        #site-footer {
+            background: #080808;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo .dot {
+            color: var(--red);
+        }
+
+        .footer-loc {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .footer-copyright {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 1rem;
+        }
+
+        .footer-heading {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-links li {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links li:hover {
+            color: var(--white);
+        }
+
+        .footer-status {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 2;
+        }
+
+        .footer-status .active-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin-right: 0.3rem;
+            animation: blink-cursor 1.5s step-end infinite;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           UTILITY / SCROLL ANIMATIONS
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            will-change: transform, opacity;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            will-change: transform, opacity;
+        }
+
+        /* Scanline Overlay (subtle) */
+        .scanline-overlay {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 4px);
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        /* ============================================
+           RESPONSIVE TWEAKS
+           ============================================ */
+        @media (max-width: 640px) {
+            #navbar {
+                padding: 1rem 1.25rem;
+            }
+
+            .hero-headline {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+
+            .fb-preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .svc-card {
+                width: 280px;
+            }
+        }
+
+        /* ============================================
+           CUSTOM SCROLLBAR
+           ============================================ */
+        ::-webkit-scrollbar {
+            width: 3px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(225, 29, 42, 0.6);
+        }
+
+        /* ============================================
+           REPAIR HUB — FB CTA SECTION
+           ============================================ */
+        #fb-cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fb-cta-text {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== BOOT LOADER ========== -->
+    <div id="boot-loader">
+        <div class="loader"></div>
+        <div class="boot-text">INITIALIZING ACETECH SYSTEMS</div>
+    </div>
+
+    <!-- ========== GLITCH GRID OVERLAY ========== -->
+    <div id="glitch-overlay"></div>
+
+    <!-- ========== SCANLINE OVERLAY ========== -->
+    <div class="scanline-overlay"></div>
+
+    <!-- ========== CUSTOM CURSOR ========== -->
+    <div id="custom-cursor">
+        <svg style="position:absolute;width:0;height:0;">
+            <defs>
+                <filter id="cursor-noise-x">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" id="cursorFilterX" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+                <filter id="cursor-noise-y">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" id="cursorFilterY" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="cursor-h-line" id="cursorH"></div>
+        <div class="cursor-v-line" id="cursorV"></div>
+        <div class="cursor-dot" id="cursorDot"></div>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-logo" data-nav="page1" aria-label="Acetech Home">
+            <img src="acetech-logo.avif" alt="Acetech Repair and Phones Accessories" class="nav-logo-img">
+        </div>
+        <div class="menu-morph" id="menuMorph" aria-label="Toggle menu" role="button" tabindex="0">
+            <div class="morph-circle"></div>
+            <div class="morph-text-container">
+                <span class="morph-menu-label">MENU</span>
+                <span class="morph-close-label">CLOSE</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== NAV OVERLAY ========== -->
+    <div id="nav-overlay" role="dialog" aria-label="Navigation menu">
+        <a class="nav-link" data-nav="page1">HOME</a>
+        <a class="nav-link" data-nav="page2">REPAIR HUB</a>
+        <a class="nav-link" data-nav="page3">INTEL</a>
+        <a class="nav-link" href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener">FACEBOOK</a>
+    </div>
+
+    <!-- ================================================================
+         PAGE 1 — THE CONVERSION FUNNEL
+         ================================================================ -->
+    <main id="page1" class="page active">
+
+        <!-- HERO (1.1) -->
+        <header id="hero">
+            <canvas id="hero-canvas"></canvas>
+            <!-- Phone effect — FIXED: bigger, centered -->
+            <div id="phone-effect" aria-hidden="true">
+                <img id="phone-inner-img" src="phone-inner.avif" alt="">
+                <canvas id="phone-canvas"></canvas>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-headline" id="heroHeadline">
+                    <span class="hero-line" data-text="OLONGAPO'S TRUSTED REPAIR SPECIALISTS.">OLONGAPO'S TRUSTED REPAIR
+                        SPECIALISTS.</span>
+                </h1>
+                <p class="hero-sub" id="heroSub">
+                    Micro-Soldering &bull; Logic Board Repair &bull; LCD Resurrection<br>
+                    Serving Olongapo City Since Day One.
+                </p>
+                <p class="hero-location" id="heroLoc">
+                    📍 104 Rizal Avenue Extension, East Tapinac, Olongapo City<br>
+                    📞 0968 458 9577
+                </p>
+                <div class="hero-ctas" id="heroCtas">
+                    <button class="btn-primary" data-nav="page2">INITIATE REPAIR →</button>
+                    <button class="btn-ghost" id="scrollToServices">CHECK REPAIR OPTIONS</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- TRUST STRIP (1.2) -->
+        <section id="trust-strip" aria-label="Trust indicators">
+            <div class="trust-track">
+                <span class="trust-item"><span class="check">✔</span> Same-Day Repairs</span>
+                <span class="trust-item"><span class="check">✔</span> OEM-Spec Parts</span>
+                <span class="trust-item"><span class="check">✔</span> Advanced Board-Level Diagnostics</span>
+                <span class="trust-item"><span class="check">✔</span> Located in East Tapinac, Olongapo</span>
+                <span class="trust-item"><span class="check">✔</span> Trusted by 1,000+ Local Devices</span>
+                <span class="trust-item"><span class="check">✔</span> No Fix, No Fee Policy</span>
+                <span class="trust-item"><span class="check">✔</span> Same-Day Repairs</span>
+                <span class="trust-item"><span class="check">✔</span> OEM-Spec Parts</span>
+                <span class="trust-item"><span class="check">✔</span> Advanced Board-Level Diagnostics</span>
+                <span class="trust-item"><span class="check">✔</span> Located in East Tapinac, Olongapo</span>
+                <span class="trust-item"><span class="check">✔</span> Trusted by 1,000+ Local Devices</span>
+                <span class="trust-item"><span class="check">✔</span> No Fix, No Fee Policy</span>
+            </div>
+        </section>
+
+        <!-- SERVICE CAPABILITIES — 3D TUNNEL (1.3) — OPTIMIZED + FIREFOX FIX -->
+        <section id="services-section"
+            aria-label="Our repair services including micro-soldering, screen replacement, logic board diagnostics, and phone accessories">
+            <div id="services-sticky">
+                <div id="svc-hud">
+                    <div class="svc-hud-row">
+                        <span>WHAT WE <strong>RECOVER</strong></span>
+                        <div class="svc-hud-line"></div>
+                        <span>SYS.<strong>READY</strong></span>
+                    </div>
+                    <div class="svc-hud-row" style="justify-content:center;">
+                        <span id="svc-hud-cat" style="font-size:0.55rem;letter-spacing:3px;">SCROLL TO EXPLORE</span>
+                    </div>
+                    <div class="svc-hud-row">
+                        <span>ACETECH_SERVICES</span>
+                        <div class="svc-hud-line"></div>
+                        <span>PROGRESS: <strong id="svc-hud-vel">0%</strong></span>
+                    </div>
+                </div>
+                <div id="svc-viewport">
+                    <div id="svc-world"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY ACETECH (1.4) -->
+        <section id="why-section" aria-label="Why choose Acetech for device repair in Olongapo City">
+            <h2 class="section-title reveal">WHY OLONGAPO TRUSTS <span class="accent">ACE</span></h2>
+            <div class="why-grid">
+                <div class="reveal-left">
+                    <ul class="why-list">
+                        <li>Led by <strong>ACE</strong> — Owner & Lead Technician</li>
+                        <li>Advanced Micro-Soldering Specialist</li>
+                        <li>Board-Level Repair Expertise (not just part-swapping)</li>
+                        <li>Transparent Diagnostics — you see what's wrong</li>
+                        <li>Repair-First Mindset (never upsell unnecessary replacements)</li>
+                        <li>Located in the heart of East Tapinac, Olongapo City</li>
+                        <li>Serving Olongapo, Subic, and surrounding Zambales areas</li>
+                    </ul>
+                </div>
+                <div class="reveal-right">
+                    <div class="bio-card">
+                        <div class="bio-line">NAME: <span class="val">ACE</span></div>
+                        <div class="bio-line">ROLE: <span class="val">Owner & Lead Technician</span></div>
+                        <div class="bio-line">SPEC: <span class="val">Micro-Soldering, Board Repair</span></div>
+                        <div class="bio-line">BASE: <span class="val">Olongapo City, PH</span></div>
+                        <div class="bio-line">STATUS: <span class="val blink">[ACTIVE]</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF PREVIEW (1.5) — FIXED: no invert + overlay for scroll fix -->
+        <section id="social-proof" aria-label="Customer reviews from Facebook">
+            <h2 class="section-title reveal">REAL REPAIRS<span class="accent">.</span> REAL CUSTOMERS<span
+                    class="accent">.</span> REAL RESULTS<span class="accent">.</span></h2>
+            <div class="fb-preview-grid">
+                <div class="fb-embed-wrapper reveal">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0cZcAW132Lx8uKprXzwpsZvY6pdr64TPHRRMpDf6aBQcS7Ss7iYXNM5SqmPukHDsxl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper reveal">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0creJDcmsAse478D8utbns6mtwL8LbB58DSExJ7vWdM4eLXWNpqAkj8ATf1A5Tfbrl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper reveal">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid02MivP9Z52SBjoJWZ2ns4Y5qvZo47xDwbBuEqLPDkcr3r9ChSpbEwgT2YqMAN2HSp6l&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+            </div>
+            <button class="btn-primary" data-nav="page2">VIEW LIVE REPAIR FEED →</button>
+        </section>
+
+        <!-- FINAL CTA STRIP (1.6) — FIXED: Facebook CTA -->
+        <section id="cta-strip">
+            <h2 class="cta-headline reveal">YOUR DEVICE ISN'T DEAD.<br>IT'S JUST WAITING FOR <span
+                    class="accent">ACETECH</span>.</h2>
+            <p class="cta-sub">104 Rizal Avenue Extension, East Tapinac, Olongapo City<br>Call: 0968 458 9577</p>
+            <p class="cta-fb-prompt">Send us a message on Facebook to initiate your repair ↓</p>
+            <a href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener" class="btn-primary">MESSAGE US
+                ON FACEBOOK →</a>
+            <p class="geo-service">Serving Olongapo City &bull; East Tapinac &bull; Subic Bay Area &bull; Zambales</p>
+        </section>
+
+    </main>
+
+    <!-- ================================================================
+         PAGE 2 — THE REPAIR HUB
+         ================================================================ -->
+    <main id="page2" class="page">
+
+        <!-- BENTO GRID (2.1) -->
+        <section id="bento-section">
+            <h2 class="section-title reveal" style="padding-top:5rem;">THE REPAIR <span class="accent">HUB</span></h2>
+            <div class="bento-grid">
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🖥️</div>
+                    <h3 class="bento-title">Display Repair</h3>
+                    <p class="bento-desc">Screens, LCDs, OLED panels — from hairline cracks to full replacements.
+                        OEM-spec parts, precision installation, zero dead pixels.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🔋</div>
+                    <h3 class="bento-title">Battery & Power</h3>
+                    <p class="bento-desc">Battery degradation, charging port failures, Power IC issues — full power
+                        system diagnostics and component-level repair.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🧠</div>
+                    <h3 class="bento-title">Logic Board</h3>
+                    <p class="bento-desc">Micro-soldering, short circuit detection, IC chip replacement — the repairs
+                        other shops won't touch. Board-level expertise.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FACEBOOK PORTFOLIO GRID (2.2) — FIXED: no invert + overlay -->
+        <section id="fb-portfolio" aria-label="Repair portfolio from Facebook">
+            <h2 class="section-title reveal">REPAIR <span class="accent">PORTFOLIO</span></h2>
+            <div class="fb-masonry">
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0cZcAW132Lx8uKprXzwpsZvY6pdr64TPHRRMpDf6aBQcS7Ss7iYXNM5SqmPukHDsxl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid02MivP9Z52SBjoJWZ2ns4Y5qvZo47xDwbBuEqLPDkcr3r9ChSpbEwgT2YqMAN2HSp6l&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0creJDcmsAse478D8utbns6mtwL8LbB58DSExJ7vWdM4eLXWNpqAkj8ATf1A5Tfbrl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0ZKmN5QtfYxL9pdGEp1WLJ1XTMgsVjFwa8KpgmMC9D3RWfWAHGFxtcevKXQRV6at9l&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0EBePJXegWevorLRwVuEP5Kx9pKqCyXfMQ6fEfGksErV92xWLnHWV1SDgixzzob46l&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0osXHdDyS8kX1CFLjw8Z7tLRWNKWQ6cqjLfVws1ptJdR1ir4gYZpAMyuCYy4avrd6l&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid032E3rAwXhaBoNFRS5wu89pGyzEkd4A6sab7S8wwS2vBfeFM6JafjYn3RSVoy8fg2Vl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid03nNKFkrYMkvcgJn27WoaovkWkJ1T2AGGZxmJjmN5Ff15nfikGayek662dpefaKLml&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0TCHb3jEFi6MQmM6grCXPycvNCiKiBKysNdfAAYNtMZPQXkRrr72HXtg11pMGxmmSl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+                <div class="fb-embed-wrapper">
+                    <div class="fb-embed-overlay" data-fb-click></div>
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2Fpfbid0pRjsZ1cx1E6BFb3FBLFNebGaUsRHdU6cMsnAPULxtDeX618yQC2V6zLzDxJnY4XUl&show_text=true&width=500"
+                        scrolling="no" frameborder="0" allow="web-share" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- FACEBOOK CTA (2.3) -->
+        <section id="fb-cta-section">
+            <p class="fb-cta-text reveal">Direct message on page for more info <span style="color:var(--red);">❗</span>
+            </p>
+            <a href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener" class="btn-primary reveal">VISIT
+                OUR FACEBOOK PAGE →</a>
+        </section>
+
+    </main>
+
+    <!-- ================================================================
+         PAGE 3 — INTEL & LOGISTICS
+         ================================================================ -->
+    <main id="page3" class="page">
+
+        <!-- THE STORY (3.1) -->
+        <section id="story-section">
+            <h2 class="section-title reveal" style="padding-top:5rem;">THE TECHNICIAN BEHIND <span class="accent">THE
+                    BENCH</span></h2>
+            <article class="story-text reveal">
+                <p>ACE is the owner and lead technician of Acetech Repair and Phones Accessories, based in East Tapinac,
+                    Olongapo City. With expertise in advanced micro-soldering and board-level diagnostics, Ace has built
+                    a reputation as Olongapo's go-to specialist for repairs that other shops turn away.</p>
+                <p>What sets Acetech apart is a repair-first philosophy: diagnose accurately, fix transparently, and
+                    never replace what can be saved.</p>
+                <p>From iPhones to laptops, from logic boards to custom jailbreaks — if it's broken, Ace fixes it.</p>
+            </article>
+            <div class="story-contact reveal">
+                📍 104 Rizal Avenue Extension, East Tapinac, Olongapo City, 2200 Zambales<br>
+                📞 0968 458 9577
+            </div>
+        </section>
+
+        <!-- JSON-LD TERMINAL (3.2) -->
+        <section id="terminal-section">
+            <div class="terminal-window reveal">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                    <span class="terminal-title">ACETECH_SCHEMA.json — READ ONLY</span>
+                </div>
+                <div class="terminal-body" id="terminalBody"></div>
+            </div>
+        </section>
+
+        <!-- MAP (3.3) — FIXED: dark without invert, preserves red marker -->
+        <section id="map-section">
+            <h2 class="section-title reveal">FIND <span class="accent">US</span></h2>
+            <div class="map-wrapper reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.2!2d120.27989!3d14.82767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33967163642955e5%3A0xfd98e14de15b3f23!2sAcetech!5e0!3m2!1sen!2sph!4v1737000000000!5m2!1sen!2sph"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Acetech Repair location on Google Maps"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== GLOBAL FOOTER ========== -->
+    <footer id="site-footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">ACETECH<span class="dot">.</span></div>
+                <div class="footer-loc">Olongapo City, Zambales</div>
+                <div class="footer-copyright">&copy; 2025 Acetech Repair and Phones Accessories. All rights reserved.
+                </div>
+            </div>
+            <div>
+                <div class="footer-heading">Navigation</div>
+                <ul class="footer-links">
+                    <li data-nav="page1">Home</li>
+                    <li data-nav="page2">Repair Hub</li>
+                    <li data-nav="page3">Intel</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-heading">Status</div>
+                <div class="footer-status">
+                    📞 <a href="tel:09684589577">0968 458 9577</a><br>
+                    REPAIR_STATUS: <span class="active-dot"></span> ACTIVE<br>
+                    Mon–Sat | 10:00 AM – 9:00 PM<br>
+                    Sunday: CLOSED
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            ACETECH REPAIR &bull; 104 RIZAL AVENUE EXTENSION, EAST TAPINAC, OLONGAPO CITY, 2200 ZAMBALES
+        </div>
+    </footer>
+
+    <!-- ================================================================
+         JAVASCRIPT — ALL LOGIC (OPTIMIZED)
+         ================================================================ -->
+    <script>
+        (function () {
+            'use strict';
+
+            // ============================================
+            // GLITCH GRID — Create cells
+            // ============================================
+            var glitchOverlay = document.getElementById('glitch-overlay');
+            for (var i = 0; i < 100; i++) {
+                var cell = document.createElement('div');
+                cell.className = 'glitch-cell';
+                glitchOverlay.appendChild(cell);
+            }
+
+            // ============================================
+            // BOOT LOADER
+            // ============================================
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    var loader = document.getElementById('boot-loader');
+                    loader.classList.add('fade-out');
+                    setTimeout(function () {
+                        loader.style.display = 'none';
+                        initHeroAnimation();
+                        initScrollAnimations();
+                        initPhoneEffect();
+                        initServicesTunnel();
+                    }, 500);
+                }, 1200);
+            });
+
+            // ============================================
+            // LENIS SMOOTH SCROLL + GSAP Integration
+            // ============================================
+            var lenis;
+
+            function initLenis() {
+                if (lenis) lenis.destroy();
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    smoothTouch: false,
+                    touchMultiplier: 2
+                });
+
+                lenis.on('scroll', ScrollTrigger.update);
+
+                gsap.ticker.add(function (time) {
+                    lenis.raf(time * 1000);
+                });
+                gsap.ticker.lagSmoothing(0);
+            }
+
+            initLenis();
+
+            // ============================================
+            // FB EMBED OVERLAYS — Click to remove overlay, scroll passthrough fix
+            // ============================================
+            document.querySelectorAll('[data-fb-click]').forEach(function (overlay) {
+                overlay.addEventListener('click', function () {
+                    // Remove overlay on click so user can interact with FB embed
+                    this.style.pointerEvents = 'none';
+                });
+            });
+
+            // Re-enable overlays when mouse leaves the wrapper
+            document.querySelectorAll('.fb-embed-wrapper').forEach(function (wrapper) {
+                wrapper.addEventListener('mouseleave', function () {
+                    var overlay = this.querySelector('.fb-embed-overlay');
+                    if (overlay) overlay.style.pointerEvents = '';
+                });
+            });
+
+            // ============================================
+            // HERO CANVAS — 3D Wireframe Background
+            // ============================================
+            function initHeroCanvas() {
+                var canvas = document.getElementById('hero-canvas');
+                if (!canvas) return;
+                var ctx = canvas.getContext('2d');
+                var hero = document.getElementById('hero');
+                var width, height;
+
+                function handleResize() {
+                    width = hero.offsetWidth;
+                    height = hero.offsetHeight;
+                    canvas.width = width;
+                    canvas.height = height;
+                }
+                window.addEventListener('resize', handleResize);
+                handleResize();
+
+                var numPoints = 60;
+                var points = [];
+                var size = Math.min(width, height) * 0.6;
+
+                for (var i = 0; i < numPoints; i++) {
+                    var theta = Math.random() * Math.PI * 2;
+                    var phi = Math.acos((Math.random() * 2) - 1);
+                    var r = size * (0.5 + Math.random() * 0.5);
+                    points.push({
+                        x: r * Math.sin(phi) * Math.cos(theta),
+                        y: r * Math.sin(phi) * Math.sin(theta),
+                        z: r * Math.cos(phi),
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        vz: (Math.random() - 0.5) * 0.5
+                    });
+                }
+
+                var rotationX = 0, rotationY = 0;
+                var running = true;
+
+                function render() {
+                    if (!running) return;
+                    ctx.fillStyle = 'rgba(5, 5, 5, 0.2)';
+                    ctx.fillRect(0, 0, width, height);
+
+                    rotationX += 0.002;
+                    rotationY += 0.003;
+
+                    var projectedPoints = [];
+                    var centerX = width / 2;
+                    var centerY = height / 2;
+
+                    for (var pi = 0; pi < points.length; pi++) {
+                        var p = points[pi];
+                        var x = p.x, y = p.y, z = p.z;
+                        var x1 = x * Math.cos(rotationY) - z * Math.sin(rotationY);
+                        var z1 = z * Math.cos(rotationY) + x * Math.sin(rotationY);
+                        var y1 = y * Math.cos(rotationX) - z1 * Math.sin(rotationX);
+                        var z2 = z1 * Math.cos(rotationX) + y * Math.sin(rotationX);
+
+                        p.x += p.vx; p.y += p.vy; p.z += p.vz;
+                        if (Math.abs(p.x) > size) p.vx *= -1;
+                        if (Math.abs(p.y) > size) p.vy *= -1;
+                        if (Math.abs(p.z) > size) p.vz *= -1;
+
+                        var fov = 1000;
+                        var scale = fov / (fov + z2);
+                        var screenX = x1 * scale + centerX;
+                        var screenY = y1 * scale + centerY;
+                        projectedPoints.push({ x: screenX, y: screenY, s: scale, z: z2 });
+
+                        var alpha = Math.max(0.1, (z2 + size) / (2 * size));
+                        ctx.beginPath();
+                        ctx.arc(screenX, screenY, 2 * scale, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(225, 29, 42, ' + (alpha * 0.8) + ')';
+                        ctx.fill();
+                    }
+
+                    ctx.lineWidth = 0.5;
+                    for (var i = 0; i < projectedPoints.length; i++) {
+                        for (var j = i + 1; j < projectedPoints.length; j++) {
+                            var p1 = projectedPoints[i], p2 = projectedPoints[j];
+                            var dx = p1.x - p2.x, dy = p1.y - p2.y;
+                            var dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 150) {
+                                var opacity = 1 - (dist / 150);
+                                ctx.strokeStyle = 'rgba(225, 29, 42, ' + (opacity * 0.12) + ')';
+                                ctx.beginPath();
+                                ctx.moveTo(p1.x, p1.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+
+                    requestAnimationFrame(render);
+                }
+
+                render();
+                return function () { running = false; };
+            }
+
+            var canvasCleanup = null;
+
+            // ============================================
+            // PHONE GLITCH REVEAL EFFECT — FIXED: larger, centered, lerp easing
+            // ============================================
+            function initPhoneEffect() {
+                var hero = document.getElementById('hero');
+                var phoneCanvas = document.getElementById('phone-canvas');
+                var innerImg = document.getElementById('phone-inner-img');
+                var phoneEffect = document.getElementById('phone-effect');
+                if (!phoneCanvas || !innerImg || !hero || !phoneEffect) return;
+
+                var ctx = phoneCanvas.getContext('2d');
+                var outerImg = new Image();
+                outerImg.src = 'phone-outer.avif';
+
+                // Mouse state with LERP for easing
+                var mouseX = -9999, mouseY = -9999;
+                var lerpX = -9999, lerpY = -9999;
+                var isOver = false;
+                var frame = 0;
+                var blockNoise = [];
+                var BLOCK = 8;
+                var RADIUS = 120;
+                var cols = 0, rows = 0;
+                var LERP_SPEED = 0.08; // Easing speed — lower = smoother/slower
+
+                outerImg.onload = function () {
+                    phoneCanvas.width = outerImg.naturalWidth;
+                    phoneCanvas.height = outerImg.naturalHeight;
+                    cols = Math.ceil(phoneCanvas.width / BLOCK);
+                    rows = Math.ceil(phoneCanvas.height / BLOCK);
+                    for (var r = 0; r < rows; r++) {
+                        blockNoise[r] = [];
+                        for (var c = 0; c < cols; c++) {
+                            blockNoise[r][c] = Math.random();
+                        }
+                    }
+                    renderPhone();
+                };
+
+                hero.addEventListener('mousemove', function (e) {
+                    var rect = phoneCanvas.getBoundingClientRect();
+                    var scaleX = phoneCanvas.width / rect.width;
+                    var scaleY = phoneCanvas.height / rect.height;
+                    mouseX = (e.clientX - rect.left) * scaleX;
+                    mouseY = (e.clientY - rect.top) * scaleY;
+                    isOver = true;
+                });
+
+                hero.addEventListener('mouseleave', function () {
+                    isOver = false;
+                    mouseX = -9999; mouseY = -9999;
+                });
+
+                function lerp(a, b, t) { return a + (b - a) * t; }
+
+                function renderPhone() {
+                    if (!outerImg.complete || !outerImg.naturalWidth) {
+                        requestAnimationFrame(renderPhone); return;
+                    }
+
+                    // LERP the cursor position for smooth easing
+                    if (isOver && mouseX > -9000) {
+                        if (lerpX < -9000) { lerpX = mouseX; lerpY = mouseY; }
+                        lerpX = lerp(lerpX, mouseX, LERP_SPEED);
+                        lerpY = lerp(lerpY, mouseY, LERP_SPEED);
+                    } else {
+                        // Ease out when mouse leaves
+                        lerpX = lerp(lerpX, -9999, 0.05);
+                        lerpY = lerp(lerpY, -9999, 0.05);
+                    }
+
+                    ctx.clearRect(0, 0, phoneCanvas.width, phoneCanvas.height);
+                    ctx.drawImage(outerImg, 0, 0);
+
+                    if (lerpX > -9000) {
+                        // Refresh noise blocks periodically for glitch feel
+                        if (frame % 4 === 0) {
+                            for (var r = 0; r < rows; r++) {
+                                for (var c = 0; c < cols; c++) {
+                                    if (Math.random() < 0.06) blockNoise[r][c] = Math.random();
+                                }
+                            }
+                        }
+
+                        // Pixelized glitch mask reveal near lerped cursor position
+                        for (var r = 0; r < rows; r++) {
+                            for (var c = 0; c < cols; c++) {
+                                var bx = c * BLOCK + BLOCK / 2;
+                                var by = r * BLOCK + BLOCK / 2;
+                                var dx = bx - lerpX;
+                                var dy = by - lerpY;
+                                var dist = Math.sqrt(dx * dx + dy * dy);
+                                if (dist < RADIUS) {
+                                    var strength = 1 - dist / RADIUS;
+                                    var threshold = 0.35 - strength * 0.25;
+                                    if (blockNoise[r][c] > threshold) {
+                                        // Glitch offset on some frames
+                                        var glitchX = 0;
+                                        if (frame % 3 === 0 && Math.random() > 0.85) {
+                                            glitchX = Math.round((Math.random() - 0.5) * 3) * BLOCK;
+                                        }
+                                        ctx.clearRect(c * BLOCK + glitchX, r * BLOCK, BLOCK, BLOCK);
+                                    }
+                                }
+                            }
+                        }
+
+                        // Add scanline glitch lines near cursor
+                        if (frame % 5 === 0 && Math.random() > 0.6) {
+                            var lineY = Math.round(lerpY / BLOCK) * BLOCK + Math.round((Math.random() - 0.5) * 4) * BLOCK;
+                            var lineW = BLOCK * (3 + Math.floor(Math.random() * 6));
+                            var lineX = Math.round(lerpX / BLOCK) * BLOCK - lineW / 2;
+                            ctx.clearRect(lineX, lineY, lineW, BLOCK);
+                        }
+                    }
+
+                    frame++;
+                    requestAnimationFrame(renderPhone);
+                }
+            }
+
+            // ============================================
+            // HERO ANIMATION — Staggered Entrance
+            // ============================================
+            function initHeroAnimation() {
+                document.querySelectorAll('.hero-line').forEach(function (line) {
+                    var text = line.textContent;
+                    line.innerHTML = '';
+                    var words = text.split(' ');
+                    words.forEach(function (word, wi) {
+                        var wordWrap = document.createElement('span');
+                        wordWrap.style.cssText = 'display:inline-block;white-space:nowrap;';
+                        word.split('').forEach(function (ch) {
+                            var span = document.createElement('span');
+                            span.className = 'char';
+                            span.textContent = ch;
+                            wordWrap.appendChild(span);
+                        });
+                        line.appendChild(wordWrap);
+                        if (wi < words.length - 1) {
+                            line.appendChild(document.createTextNode(' '));
+                        }
+                    });
+                });
+
+                var tl = gsap.timeline({ delay: 0.2 });
+
+                tl.to('.hero-line .char', {
+                    opacity: 1, y: 0, duration: 0.5, stagger: 0.02, ease: 'power3.out', force3D: true
+                })
+                    .to('#heroSub', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+                    .to('#heroLoc', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
+                    .to('#heroCtas', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.2');
+
+                canvasCleanup = initHeroCanvas();
+            }
+
+            // ============================================
+            // SCROLL-TRIGGERED ANIMATIONS
+            // ============================================
+            function initScrollAnimations() {
+                ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
+
+                var currentPage = document.querySelector('.page.active');
+                if (!currentPage) return;
+
+                currentPage.querySelectorAll('.reveal').forEach(function (el) {
+                    gsap.fromTo(el,
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', force3D: true,
+                            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                        }
+                    );
+                });
+
+                currentPage.querySelectorAll('.reveal-left').forEach(function (el) {
+                    gsap.fromTo(el,
+                        { opacity: 0, x: -40 },
+                        {
+                            opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', force3D: true,
+                            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                        }
+                    );
+                });
+
+                currentPage.querySelectorAll('.reveal-right').forEach(function (el) {
+                    gsap.fromTo(el,
+                        { opacity: 0, x: 40 },
+                        {
+                            opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', force3D: true,
+                            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                        }
+                    );
+                });
+
+                ScrollTrigger.refresh();
+            }
+
+            // ============================================
+            // GLITCH GRID TRANSITION
+            // ============================================
+            function glitchTransition(targetPageId, callback) {
+                var overlay = document.getElementById('glitch-overlay');
+                var cells = overlay.querySelectorAll('.glitch-cell');
+
+                overlay.classList.add('active');
+                overlay.style.opacity = '1';
+
+                gsap.fromTo(cells,
+                    { opacity: 0 },
+                    {
+                        opacity: 1, duration: 0.06,
+                        stagger: { each: 0.008, from: 'random' },
+                        ease: 'none',
+                        onStart: function () {
+                            cells.forEach(function (c) {
+                                var colors = ['#E11D2A', '#0B0B0B', '#0B0B0B', 'rgba(255,255,255,0.04)'];
+                                c.style.background = colors[Math.floor(Math.random() * colors.length)];
+                            });
+                        },
+                        onComplete: function () {
+                            if (callback) callback();
+                            setTimeout(function () {
+                                gsap.to(cells, {
+                                    opacity: 0, duration: 0.04,
+                                    stagger: { each: 0.006, from: 'random' },
+                                    ease: 'none',
+                                    onComplete: function () {
+                                        overlay.classList.remove('active');
+                                        overlay.style.opacity = '0';
+                                    }
+                                });
+                            }, 200);
+                        }
+                    }
+                );
+            }
+
+            // ============================================
+            // PAGE NAVIGATION
+            // ============================================
+            var currentPageId = 'page1';
+
+            function navigateTo(pageId) {
+                if (pageId === currentPageId) return;
+                closeMenu();
+
+                glitchTransition(pageId, function () {
+                    document.getElementById(currentPageId).classList.remove('active');
+                    document.getElementById(pageId).classList.add('active');
+                    currentPageId = pageId;
+
+                    window.scrollTo(0, 0);
+                    if (lenis) lenis.scrollTo(0, { immediate: true });
+
+                    setTimeout(function () {
+                        initScrollAnimations();
+                        if (pageId === 'page3') initTerminalTypewriter();
+                        if (pageId === 'page1') {
+                            if (canvasCleanup) canvasCleanup();
+                            canvasCleanup = initHeroCanvas();
+                        }
+                    }, 300);
+                });
+            }
+
+            document.querySelectorAll('[data-nav]').forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    navigateTo(el.getAttribute('data-nav'));
+                });
+            });
+
+            document.getElementById('scrollToServices').addEventListener('click', function () {
+                var target = document.getElementById('services-section');
+                if (lenis) { lenis.scrollTo(target, { offset: -80 }); }
+                else { target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+
+            // ============================================
+            // MENU MORPH
+            // ============================================
+            var menuOpen = false;
+            var menuMorph = document.getElementById('menuMorph');
+            var navOverlay = document.getElementById('nav-overlay');
+            var menuLabel = menuMorph.querySelector('.morph-menu-label');
+            var closeLabel = menuMorph.querySelector('.morph-close-label');
+            var morphCircle = menuMorph.querySelector('.morph-circle');
+
+            function toggleMenu() {
+                menuOpen = !menuOpen;
+                gsap.to(menuLabel, { y: menuOpen ? -20 : 0, duration: 0.5, ease: 'power2.inOut' });
+                gsap.to(closeLabel, { y: menuOpen ? 0 : 20, duration: 0.5, ease: 'power2.inOut' });
+                var tl = gsap.timeline();
+                tl.to(morphCircle, { x: -10, scaleX: 2.5, borderRadius: '4px', duration: 0.2, ease: 'power1.out' })
+                    .to(morphCircle, { x: 0, scaleX: 1, borderRadius: '50%', duration: 0.2, ease: 'power1.in' });
+                navOverlay.classList.toggle('open', menuOpen);
+            }
+
+            function closeMenu() {
+                if (!menuOpen) return;
+                menuOpen = false;
+                gsap.to(menuLabel, { y: 0, duration: 0.5, ease: 'power2.inOut' });
+                gsap.to(closeLabel, { y: 20, duration: 0.5, ease: 'power2.inOut' });
+                navOverlay.classList.remove('open');
+            }
+
+            menuMorph.addEventListener('click', toggleMenu);
+            menuMorph.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+            });
+
+            // ============================================
+            // CUSTOM CROSSHAIR CURSOR
+            // ============================================
+            (function initCursor() {
+                if (window.matchMedia('(pointer: coarse)').matches) return;
+
+                var cursorH = document.getElementById('cursorH');
+                var cursorV = document.getElementById('cursorV');
+                var cursorDot = document.getElementById('cursorDot');
+                var filterX = document.getElementById('cursorFilterX');
+                var filterY = document.getElementById('cursorFilterY');
+
+                var mouse = { x: 0, y: 0 };
+                var pos = { x: 0, y: 0 };
+                var animRunning = false;
+                var cursorHidden = false;
+
+                function lerp(a, b, n) { return (1 - n) * a + n * b; }
+
+                document.addEventListener('mousemove', function (e) {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+
+                    if (!animRunning) {
+                        pos.x = mouse.x;
+                        pos.y = mouse.y;
+                        gsap.to([cursorH, cursorV, cursorDot], { opacity: 1, duration: 0.6, ease: 'power3.out' });
+                        animRunning = true;
+                        renderCursor();
+                    } else if (cursorHidden) {
+                        cursorHidden = false;
+                        gsap.to([cursorH, cursorV, cursorDot], { opacity: 1, duration: 0.3 });
+                    }
+                });
+
+                function renderCursor() {
+                    pos.x = lerp(pos.x, mouse.x, 0.15);
+                    pos.y = lerp(pos.y, mouse.y, 0.15);
+                    gsap.set(cursorV, { x: pos.x });
+                    gsap.set(cursorH, { y: pos.y });
+                    gsap.set(cursorDot, { x: pos.x, y: pos.y });
+                    requestAnimationFrame(renderCursor);
+                }
+
+                var glitchTl = gsap.timeline({ paused: true })
+                    .fromTo({ turb: 1 }, { turb: 1 }, {
+                        turb: 0, duration: 0.5, ease: 'power1',
+                        onUpdate: function () {
+                            var v = this.targets()[0].turb;
+                            if (filterX) filterX.setAttribute('baseFrequency', v.toString());
+                            if (filterY) filterY.setAttribute('baseFrequency', v.toString());
+                        },
+                        onStart: function () {
+                            cursorH.style.filter = 'url(#cursor-noise-x)';
+                            cursorV.style.filter = 'url(#cursor-noise-y)';
+                        },
+                        onComplete: function () {
+                            cursorH.style.filter = 'none';
+                            cursorV.style.filter = 'none';
+                        }
+                    });
+
+                document.addEventListener('mouseover', function (e) {
+                    if (e.target.closest('a, button, [data-nav], .menu-morph, .service-card, .bento-card, .nav-link')) {
+                        glitchTl.restart();
+                        gsap.to(cursorDot, { scale: 2, borderColor: '#E11D2A', duration: 0.2 });
+                    }
+                });
+
+                document.addEventListener('mouseout', function (e) {
+                    if (e.target.closest('a, button, [data-nav], .menu-morph, .service-card, .bento-card, .nav-link')) {
+                        gsap.to(cursorDot, { scale: 1, borderColor: '#E11D2A', duration: 0.2 });
+                    }
+                });
+
+                window.addEventListener('blur', function () {
+                    cursorHidden = true;
+                    gsap.to([cursorH, cursorV, cursorDot], { opacity: 0, duration: 0.2 });
+                });
+                window.addEventListener('focus', function () {
+                    if (animRunning && cursorHidden) {
+                        cursorHidden = false;
+                        gsap.to([cursorH, cursorV, cursorDot], { opacity: 1, duration: 0.3 });
+                    }
+                });
+            })();
+
+            // ============================================
+            // TERMINAL TYPEWRITER (Page 3)
+            // ============================================
+            var terminalTyped = false;
+
+            function initTerminalTypewriter() {
+                if (terminalTyped) return;
+                terminalTyped = true;
+
+                var schemaText = JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "LocalBusiness",
+                    "name": "Acetech Repair and Phones Accessories",
+                    "telephone": "09684589577",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "104 Rizal Avenue Extension, East Tapinac",
+                        "addressLocality": "Olongapo City",
+                        "addressRegion": "Zambales",
+                        "postalCode": "2200",
+                        "addressCountry": "PH"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 14.8276663,
+                        "longitude": 120.2798901
+                    },
+                    "sameAs": ["https://www.facebook.com/Acetech07"]
+                }, null, 2);
+
+                var highlighted = schemaText
+                    .replace(/"([^"]+)":/g, '<span class="json-key">"$1"</span>:')
+                    .replace(/: "([^"]+)"/g, ': <span class="json-str">"$1"</span>')
+                    .replace(/: (\d+\.?\d*)/g, ': <span class="json-num">$1</span>');
+
+                var body = document.getElementById('terminalBody');
+                body.innerHTML = '';
+
+                var chars = highlighted;
+                var idx = 0;
+                var speed = 3;
+
+                function type() {
+                    if (idx >= chars.length) return;
+                    if (chars[idx] === '<') {
+                        var closeIdx = chars.indexOf('>', idx);
+                        if (closeIdx !== -1) {
+                            body.innerHTML += chars.substring(idx, closeIdx + 1);
+                            idx = closeIdx + 1;
+                        }
+                    } else {
+                        body.innerHTML += chars[idx];
+                        idx++;
+                    }
+                    var nextDelay = (chars[idx] === ' ' || chars[idx] === '\n') ? 1 : speed;
+                    setTimeout(type, nextDelay);
+                }
+
+                ScrollTrigger.create({
+                    trigger: '#terminal-section',
+                    start: 'top 80%',
+                    once: true,
+                    onEnter: type
+                });
+            }
+
+            // ============================================
+            // SERVICES 3D TUNNEL — OPTIMIZED + FIREFOX FIX
+            // ALL service items, max 5 per card
+            // ============================================
+            function initServicesTunnel() {
+                var world = document.getElementById('svc-world');
+                var section = document.getElementById('services-section');
+                if (!world || !section) return;
+
+                // Full service data — max 5 per card, overflow creates new card
+                var SERVICES_RAW = [
+                    {
+                        category: 'MOBILE DEVICES', icon: '📱',
+                        items: [
+                            'iPhone Screen Replacement', 'Android LCD Repair', 'Battery Replacement',
+                            'Charging Port Repair', 'Water Damage Restoration', 'Face ID / Camera Repair',
+                            'Speaker & Mic Repair', 'Jailbreak & Software Recovery',
+                            'iOS / Android Flashing', 'Back Glass Replacement'
+                        ]
+                    },
+                    {
+                        category: 'BOARD REPAIR', icon: '🧠',
+                        items: [
+                            'Micro-Soldering', 'Logic Board Diagnostics', 'Short Circuit Detection',
+                            'IC Chip Replacement', 'No Power / Dead Boot Repair', 'BIOS Recovery', 'EFI Unlock'
+                        ]
+                    },
+                    {
+                        category: 'LAPTOP & PC', icon: '💻',
+                        items: [
+                            'Motherboard Repair', 'SSD / RAM Upgrade', 'Overheating Fix',
+                            'OS Installation', 'Data Recovery', 'GPU Reballing'
+                        ]
+                    },
+                    {
+                        category: 'ACCESSORIES', icon: '🔌',
+                        items: [
+                            'Tempered Glass', 'Phone Cases & Covers', 'Chargers & Cables',
+                            'Power Banks', 'Screen Protector Install'
+                        ]
+                    }
+                ];
+
+                // Split into max-5 cards
+                var SERVICES_DATA = [];
+                SERVICES_RAW.forEach(function (cat) {
+                    var MAX = 5;
+                    var totalCards = Math.ceil(cat.items.length / MAX);
+                    for (var c = 0; c < totalCards; c++) {
+                        var slice = cat.items.slice(c * MAX, (c + 1) * MAX);
+                        var suffix = totalCards > 1 ? ' [' + (c + 1) + '/' + totalCards + ']' : '';
+                        SERVICES_DATA.push({
+                            category: cat.category + suffix,
+                            icon: cat.icon,
+                            items: slice
+                        });
+                    }
+                });
+
+                var Z_GAP = 800;
+                var items3d = [];
+
+                // Detect Firefox for fallback rendering
+                var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
+
+                SERVICES_DATA.forEach(function (cat, i) {
+                    // Big text label
+                    var labelEl = document.createElement('div');
+                    labelEl.className = 'svc-3d-item';
+                    var bigText = document.createElement('div');
+                    bigText.className = 'svc-big-text';
+                    // Use base category name (without [1/2] suffix) for big text
+                    bigText.textContent = cat.category.replace(/ \[\d+\/\d+\]/, '');
+                    labelEl.appendChild(bigText);
+                    world.appendChild(labelEl);
+                    items3d.push({ el: labelEl, type: 'text', baseZ: -(i * 2) * Z_GAP, x: 0, y: 0 });
+
+                    // Service card
+                    var cardEl = document.createElement('div');
+                    cardEl.className = 'svc-3d-item';
+                    var card = document.createElement('div');
+                    card.className = 'svc-card';
+                    var cardHTML = '<div class="svc-card-header">'
+                        + '<span class="svc-card-id">' + cat.icon + ' ' + cat.category + '</span>'
+                        + '<div class="svc-card-dot"></div></div>'
+                        + '<div class="svc-card-services">'
+                        + cat.items.map(function (item, j) {
+                            return '<div class="svc-card-item"><span class="svc-item-num">0' + (j + 1) + '</span>' + item + '</div>';
+                        }).join('')
+                        + '</div>';
+                    card.innerHTML = cardHTML;
+                    cardEl.appendChild(card);
+                    world.appendChild(cardEl);
+                    var xPos = (i % 2 === 0) ? 200 : -200;
+                    var rot = (i % 2 === 0) ? -4 : 4;
+                    items3d.push({ el: cardEl, type: 'card', baseZ: -(i * 2 + 1) * Z_GAP, x: xPos, y: 0, rot: rot });
+                });
+
+                var hudVelEl = document.getElementById('svc-hud-vel');
+                var hudCatEl = document.getElementById('svc-hud-cat');
+                var totalDepth = SERVICES_DATA.length * 2 * Z_GAP;
+
+                // Update section height based on content amount
+                section.style.height = Math.max(5000, totalDepth * 0.8) + 'px';
+
+                function render(time) {
+                    var rect = section.getBoundingClientRect();
+                    var sectionH = section.offsetHeight;
+                    var viewH = window.innerHeight;
+                    var scrolled = Math.max(0, -rect.top);
+                    var maxScroll = Math.max(1, sectionH - viewH);
+                    var progress = Math.min(1, scrolled / maxScroll);
+                    var cameraZ = progress * totalDepth;
+
+                    var activeCat = '';
+
+                    for (var i = 0; i < items3d.length; i++) {
+                        var item = items3d[i];
+                        var vizZ = item.baseZ + cameraZ;
+
+                        // FIXED: Aggressive fade to avoid GPU overload on close zoom
+                        var alpha = 1;
+                        if (vizZ < -3200) alpha = 0;
+                        else if (vizZ < -1600) alpha = (vizZ + 3200) / 1600;
+                        // FIXED: Fade OUT earlier so elements don't zoom to extreme sizes
+                        if (vizZ > 200) alpha = Math.max(0, 1 - (vizZ - 200) / 400);
+
+                        alpha = Math.max(0, Math.min(1, alpha));
+                        item.el.style.opacity = alpha;
+
+                        if (alpha > 0.01) {
+                            var floatY = Math.sin(time * 0.0007 + item.baseZ * 0.004) * 10;
+                            var rot = item.rot || 0;
+
+                            if (isFirefox) {
+                                // FIREFOX FIX: Use 2D transforms with scale to simulate depth
+                                var scale = 1000 / (1000 - vizZ);
+                                scale = Math.max(0.1, Math.min(scale, 3)); // Clamp scale
+                                var tx = item.x * scale;
+                                var ty = (item.y + floatY) * scale;
+                                item.el.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) scale(' + scale.toFixed(3) + ') rotate(' + rot + 'deg)';
+                            } else {
+                                // Chrome/Safari: proper 3D
+                                item.el.style.transform = 'translate3d(' + item.x + 'px,' + (item.y + floatY) + 'px,' + vizZ + 'px) rotateZ(' + rot + 'deg)';
+                            }
+
+                            if (item.type === 'text' && vizZ > -Z_GAP * 0.6 && vizZ < Z_GAP) {
+                                var idx = Math.round(-item.baseZ / Z_GAP / 2);
+                                if (idx >= 0 && idx < SERVICES_DATA.length) {
+                                    activeCat = SERVICES_DATA[idx].icon + ' ' + SERVICES_DATA[idx].category.replace(/ \[\d+\/\d+\]/, '');
+                                }
+                            }
+                        }
+                    }
+
+                    if (hudVelEl) hudVelEl.textContent = Math.round(progress * 100) + '%';
+                    if (hudCatEl && activeCat) hudCatEl.textContent = activeCat;
+
+                    requestAnimationFrame(render);
+                }
+
+                requestAnimationFrame(render);
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>
