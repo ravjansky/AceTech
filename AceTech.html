@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acetech Repair & Phones Accessories | Premium Device Repair in Olongapo City</title>
+    <meta name="description"
+        content="Acetech Repair and Phones Accessories — Olongapo City's trusted specialist for micro-soldering, logic board repair, LCD resurrection & more. Located at 104 Rizal Avenue Extension, East Tapinac.">
+    <meta name="keywords"
+        content="phone repair Olongapo, micro-soldering Zambales, logic board repair East Tapinac, screen replacement Olongapo City, Acetech Repair">
+    <link rel="canonical" href="https://acetechrepair.com">
+    <meta property="og:title" content="Acetech Repair & Phone Accessories | Olongapo City">
+    <meta property="og:description"
+        content="Precision device repair — micro-soldering, board-level diagnostics, LCD resurrection. Serving Olongapo City, Subic & Zambales.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acetechrepair.com">
+    <meta property="og:image" content="https://acetechrepair.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org", "@type": "LocalBusiness",
+      "name": "Acetech Repair and Phones Accessories",
+      "image": "https://acetechrepair.com/logo.png",
+      "@id": "https://acetechrepair.com", "url": "https://acetechrepair.com",
+      "telephone": "09684589577",
+      "address": { "@type": "PostalAddress", "streetAddress": "104 Rizal Avenue Extension, East Tapinac", "addressLocality": "Olongapo City", "addressRegion": "Zambales", "postalCode": "2200", "addressCountry": "PH" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 14.8276663, "longitude": 120.2798901 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday"], "opens": "10:30", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "10:30", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "10:00", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "21:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "21:00" }
+      ],
+      "sameAs": ["https://www.facebook.com/Acetech07"]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Aero';
+            src: url('Aero.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --deep-black: #0B0B0B;
+            --red: #E11D2A;
+            --white: #FFFFFF;
+            --slate: #708090;
+            --font-display: 'Aero', 'JetBrains Mono', sans-serif;
+            --font-body: 'JetBrains Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--deep-black);
+            color: var(--white);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .hero-title,
+        .section-title,
+        h1,
+        h2 {
+            font-family: var(--font-display);
+        }
+
+        /* GLOBAL PARTICLE BG */
+        #global-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+        }
+
+        /* BOOT LOADER */
+        #boot-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: var(--deep-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.4s ease;
+        }
+
+        #boot-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .boot-text {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--red);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .loader {
+            --s: 25px;
+            --g: 5px;
+            width: calc(3*(1.353*var(--s) + var(--g)));
+            display: grid;
+            justify-items: end;
+            aspect-ratio: 3;
+            overflow: hidden;
+            --_m: linear-gradient(90deg, #0000, #000 15px calc(100% - 15px), #0000);
+            -webkit-mask: var(--_m);
+            mask: var(--_m);
+        }
+
+        .loader:before {
+            content: "";
+            width: 200%;
+            background: linear-gradient(90deg, #E11D2A 50%, #0000 0), conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)), #fff 135deg, #666 0 270deg, #aaa 0);
+            background-blend-mode: multiply;
+            --_m: linear-gradient(to bottom right, #0000 calc(0.25*var(--s)), #000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)), #0000 0), conic-gradient(from -90deg at right var(--g) bottom var(--g), #000 90deg, #0000 0);
+            -webkit-mask: var(--_m);
+            mask: var(--_m);
+            background-size: calc(100%/3) 100%, calc(100%/6) 100%;
+            -webkit-mask-size: calc(100%/6) 100%;
+            mask-size: calc(100%/6) 100%;
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+            animation: loader-anim 1s infinite linear;
+        }
+
+        @keyframes loader-anim {
+            to {
+                transform: translate(calc(100%/3));
+            }
+        }
+
+        /* GLITCH GRID */
+        #glitch-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #glitch-overlay.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        .glitch-cell {
+            background: var(--deep-black);
+            opacity: 0;
+        }
+
+        /* CUSTOM CURSOR */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        @media (pointer: coarse) {
+            #custom-cursor {
+                display: none !important;
+            }
+        }
+
+        .cursor-h-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+        }
+
+        .cursor-v-line {
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--red);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform;
+            transform: translate(-50%, -50%);
+        }
+
+        /* NAVBAR */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+        }
+
+        .nav-logo {
+            cursor: pointer;
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .menu-morph {
+            position: relative;
+            width: 85px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .morph-circle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--white);
+            border-radius: 50%;
+            left: 0;
+            will-change: transform;
+        }
+
+        .morph-text-container {
+            position: relative;
+            width: 60px;
+            height: 20px;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+
+        .morph-text-container span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-family: var(--font-body);
+        }
+
+        .morph-close-label {
+            transform: translateY(20px);
+        }
+
+        #nav-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(11, 11, 11, 0.97);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        #nav-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--white);
+            letter-spacing: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--red);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* PAGES */
+        .page {
+            display: none;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ============ HERO — LEFT/RIGHT ============ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 0 0 clamp(1rem, 3vw, 4rem);
+        }
+
+        #hero-gridscan {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        #hero-gridscan canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Main flex layout --- */
+        .hero-layout {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            min-height: 100svh;
+        }
+
+        /* --- Left: text content --- */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 620px;
+            width: 50%;
+            flex-shrink: 0;
+            padding-bottom: clamp(3rem, 6vh, 5rem);
+            transform: translateY(-25%);
+        }
+
+        /* --- Right: phone column — dramatic bottom clip --- */
+        .hero-phone-col {
+            position: relative;
+            width: 50%;
+            max-width: 550px;
+            z-index: 1;
+            pointer-events: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            align-self: flex-start;
+            overflow: visible;
+        }
+
+        /* The phone wrapper */
+        .hero-phone-inner {
+            position: relative;
+            width: 100%;
+            opacity: 0;
+        }
+
+        /* Red ambient glow behind the phone */
+        .hero-phone-inner::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            /* transform: translateX(-50%); */
+            width: 70%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(200, 30, 30, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        #phone-inner-img,
+        #phone-canvas {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #phone-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+
+        /* ============ HEADLINE — CONTROLLED LINES ============ */
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5.8vw, 5rem);
+            line-height: 0.92;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        /* Hidden until initHeroAnimation splits text into .char spans */
+        .hero-headline {
+            opacity: 0;
+        }
+
+        .hero-headline .char {
+            display: inline-block;
+            opacity: 0;
+            /* transform: translateY(40px); */
+            line-height: 1;
+        }
+
+        /* Each line is its own block */
+        .hero-line {
+            display: block;
+        }
+
+        /* The accent line — "SPECIALISTS." */
+        .hero-line-accent {
+            display: block;
+            margin-top: 0.15em;
+            font-style: italic;
+            color: var(--white);
+            position: relative;
+        }
+
+        /* Red dot before SPECIALISTS */
+        .hero-line-accent::before {
+            content: '';
+            display: inline-block;
+            width: 0.22em;
+            height: 0.22em;
+            background: var(--red);
+            border-radius: 50%;
+            margin-right: 0.2em;
+            vertical-align: middle;
+            position: relative;
+            top: -0.08em;
+            opacity: 0;
+            transform: scale(0);
+            /* will be animated by GSAP */
+        }
+
+        /* --- Separator line between headline and sub --- */
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--red);
+            margin: 1.2rem 0;
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+
+        /* ============ SUB / LOCATION / CTAS ============ */
+        .hero-sub {
+            font-size: clamp(0.72rem, 1.15vw, 0.88rem);
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-location {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+
+        /* ============ BUTTONS (unchanged) ============ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--red);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--red);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--red);
+            transform: scale(1.03);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--white);
+            transform: scale(1.03);
+        }
+
+
+        /* ============ MOBILE ============ */
+        @media (max-width: 900px) {
+            #hero {
+                padding: 5rem 1.5rem 0;
+                min-height: auto;
+            }
+
+            .hero-layout {
+                flex-direction: column;
+                align-items: center;
+                min-height: auto;
+                gap: 0;
+                padding-bottom: 0;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+                padding-bottom: 2rem;
+                order: 1;
+            }
+
+            .hero-headline {
+                font-size: clamp(2.2rem, 9vw, 3.2rem);
+            }
+
+            .hero-divider {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .hero-phone-col {
+                width: 220px;
+                order: 0;
+                /* phone on top on mobile */
+                align-self: center;
+                margin-bottom: -1rem;
+            }
+
+            .hero-phone-inner {
+                transform: translateY(0);
+                /* no clip on mobile */
+            }
+
+            .hero-phone-inner::before {
+                display: none;
+            }
+        }
+
+        /* TRUST STRIP */
+        #trust-strip {
+            background: #111;
+            border-left: 3px solid var(--red);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trust-track {
+            display: flex;
+            gap: 3rem;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+
+        .trust-item {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+        }
+
+        .trust-item .check {
+            color: var(--red);
+            margin-right: 0.4rem;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ============ 3D TUNNEL ============ */
+        #services-section {
+            position: relative;
+            padding: 0;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        #services-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #svc-hud {
+            position: absolute;
+            inset: 2rem;
+            z-index: 20;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .svc-hud-row,
+        .svc-hud-row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .svc-hud-row-top {
+            transform: translateY(4rem);
+        }
+
+        .svc-hud-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .svc-hud-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -2px;
+            width: 4px;
+            height: 4px;
+            background: var(--red);
+        }
+
+        .svc-hud-row strong {
+            color: var(--red);
+        }
+
+        #svc-viewport {
+            position: absolute;
+            inset: 0;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        #svc-world {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+        }
+
+        .svc-3d-item {
+            position: absolute;
+            left: 0;
+            top: 0;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Category text — stroke-only default, fills on scroll via class toggle */
+        .svc-big-text {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(225, 29, 42, 0.55);
+            text-transform: uppercase;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            letter-spacing: 0.08em;
+            /* CSS handles the fade back — no JS tween needed */
+            transition: color 0.6s ease, -webkit-text-stroke-color 0.4s ease;
+        }
+
+        /* Filled state — toggled by scroll-idle detector in JS */
+        .svc-big-text.is-scrolling {
+            color: var(--red);
+            -webkit-text-stroke: 1px var(--red);
+        }
+
+        .svc-card {
+            width: 310px;
+            background: rgba(8, 8, 8, 0.95);
+            border: 1px solid rgba(225, 29, 42, 0.18);
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            box-shadow: 0 0 30px rgba(225, 29, 42, 0.04), 0 10px 30px rgba(0, 0, 0, 0.4);
+            transform: translate(-50%, -50%);
+            position: relative;
+        }
+
+        .svc-card::before,
+        .svc-card::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+        }
+
+        .svc-card::before {
+            top: -1px;
+            left: -1px;
+            border-top: 1px solid rgba(225, 29, 42, 0.5);
+            border-left: 1px solid rgba(225, 29, 42, 0.5);
+        }
+
+        .svc-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 1px solid rgba(225, 29, 42, 0.5);
+            border-right: 1px solid rgba(225, 29, 42, 0.5);
+        }
+
+        .svc-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(225, 29, 42, 0.12);
+            padding-bottom: 0.5rem;
+        }
+
+        .svc-card-id {
+            font-family: var(--font-body);
+            color: var(--red);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .svc-card-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
+            animation: blink-cursor 1.5s step-end infinite;
+        }
+
+        .svc-card-services {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .svc-card-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.25rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-family: var(--font-body);
+        }
+
+        .svc-item-num {
+            color: var(--red);
+            font-size: 0.55rem;
+            letter-spacing: 1px;
+            min-width: 1.4rem;
+        }
+
+        @media (max-width: 640px) {
+            .svc-card {
+                width: 260px;
+            }
+
+            .svc-big-text {
+                font-size: clamp(1.6rem, 6vw, 2.8rem);
+            }
+
+            #svc-hud {
+                inset: 1rem;
+            }
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title .accent {
+            color: var(--red);
+        }
+
+        /* WHY SECTION */
+        #why-section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .why-list li {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .why-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        .bio-card {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            line-height: 2;
+            position: relative;
+        }
+
+        .bio-card::before {
+            content: '■ ACETECH_PROFILE.dat';
+            display: block;
+            font-size: 0.65rem;
+            color: var(--red);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bio-line {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .bio-line .val {
+            color: var(--white);
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 0.3rem;
+        }
+
+        .status-dot.open {
+            background: #4CAF50;
+            animation: blink-cursor 1.5s step-end infinite;
+        }
+
+        .status-dot.closed {
+            background: var(--red);
+        }
+
+        @keyframes blink-cursor {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ============ FB EMBEDS — FIXED ============ */
+        #social-proof {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .fb-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .fb-preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fb-embed-wrapper {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(225, 29, 42, 0.06), 0 0 40px rgba(225, 29, 42, 0.03);
+            border: 1px solid rgba(225, 29, 42, 0.1);
+            padding: 3px;
+            filter: grayscale(1) brightness(0.6);
+            transition: filter 0.4s ease;
+        }
+
+        .fb-embed-wrapper:hover {
+            filter: none;
+        }
+
+        .fb-embed-wrapper iframe {
+            width: 100%;
+            border: none;
+            display: block;
+            height: 780px;
+            pointer-events: none;
+            touch-action: none;
+        }
+
+        .fb-link-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            cursor: pointer;
+            display: block;
+        }
+
+        .fb-link-overlay:hover {
+            background: transparent;
+        }
+
+        /* CTA */
+        #cta-strip {
+            background: transparent;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-headline {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-sub {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .cta-fb-prompt {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .geo-service {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            margin-top: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        /* PAGE 2 */
+        #bento-section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                scroll-snap-type: x mandatory;
+                overflow-x: auto;
+                display: flex;
+                gap: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .bento-card {
+                min-width: 85vw;
+                scroll-snap-align: start;
+            }
+        }
+
+        .bento-card {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .bento-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .bento-card:hover {
+            border-color: rgba(225, 29, 42, 0.3);
+            box-shadow: 0 0 30px rgba(225, 29, 42, 0.1);
+        }
+
+        .bento-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bento-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+        }
+
+        #fb-portfolio {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fb-masonry {
+            columns: 2;
+            column-gap: 1.5rem;
+        }
+
+        .fb-masonry .fb-embed-wrapper {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .fb-masonry {
+                columns: 1;
+            }
+        }
+
+        #fb-cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fb-cta-text {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+
+        /* PAGE 3 */
+        #story-section {
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-text {
+            font-size: 0.85rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 2rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .story-contact {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2rem;
+            line-height: 1.8;
+        }
+
+        #terminal-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terminal-window {
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .terminal-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red {
+            background: #E11D2A;
+        }
+
+        .terminal-dot.yellow {
+            background: #f5c542;
+        }
+
+        .terminal-dot.green {
+            background: #4CAF50;
+        }
+
+        .terminal-title {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            margin-left: 0.5rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: 0.7rem;
+            line-height: 1.8;
+            color: #4CAF50;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: var(--font-body);
+        }
+
+        .terminal-body .json-key {
+            color: var(--red);
+        }
+
+        .terminal-body .json-str {
+            color: #4CAF50;
+        }
+
+        .terminal-body .json-num {
+            color: #00BFFF;
+        }
+
+        /* MAP — warm filter */
+        #map-section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .map-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .map-wrapper iframe {
+            filter: sepia(0.35) saturate(0.7) brightness(0.6) hue-rotate(-15deg) contrast(1.15);
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+        /* FOOTER */
+        #site-footer {
+            background: #080808;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-logo-img {
+            height: 36px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-loc {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .footer-copyright {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 1rem;
+        }
+
+        .footer-heading {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-links li {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links li:hover {
+            color: var(--white);
+        }
+
+        .footer-status {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 2;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+        }
+
+        /* UTILITY */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            will-change: transform, opacity;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            will-change: transform, opacity;
+        }
+
+        .scanline-overlay {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        @media (max-width: 640px) {
+            #navbar {
+                padding: 1rem 1.25rem;
+            }
+
+            .hero-headline {
+                font-size: clamp(1.8rem, 7vw, 2.8rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+        }
+
+        .why-section-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-clock {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .footer-clock .clock-time {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* ACETECH FONT ANIMATION */
+        #acetech-font-section {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        #acetech-font-section a {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            box-sizing: border-box;
+        }
+
+        #acetech-font-title {
+            font-family: var(--font-display);
+            text-rendering: optimizeSpeed;
+            color: var(--red);
+            width: 100%;
+            user-select: none;
+            line-height: 0.8em;
+            margin: 0 auto;
+            text-transform: uppercase;
+            font-weight: 100;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+        }
+
+        #acetech-font-title span {
+            display: inline-block;
+            transition: none;
+            will-change: transform, opacity;
+        }
+
+        @media (max-width: 768px) {
+            #acetech-font-title {
+                justify-content: center;
+                gap: 0.05em;
+                /* tiny breathing room without overflow */
+            }
+
+            #acetech-font-section a {
+                padding: 0 1rem;
+                /* less horizontal padding = more room for text */
+            }
+        }
+
+        /* SCROLL BAR CUSTOM DESIGN */
+        ::-webkit-scrollbar {
+            width: 3px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="global-particles"></canvas>
+    <div id="boot-loader">
+        <div class="loader"></div>
+        <div class="boot-text">INITIALIZING ACETECH SYSTEMS</div>
+    </div>
+    <div id="glitch-overlay"></div>
+    <div class="scanline-overlay"></div>
+    <div id="custom-cursor">
+        <svg style="position:absolute;width:0;height:0;">
+            <defs>
+                <filter id="cursor-noise-x">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" id="cursorFilterX" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+                <filter id="cursor-noise-y">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" id="cursorFilterY" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="cursor-h-line" id="cursorH"></div>
+        <div class="cursor-v-line" id="cursorV"></div>
+        <div class="cursor-dot" id="cursorDot"></div>
+    </div>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-logo" data-nav="page1"><img src="acetech-logo.avif" alt="Acetech Repair" class="nav-logo-img">
+        </div>
+        <div class="menu-morph" id="menuMorph" role="button" tabindex="0">
+            <div class="morph-circle"></div>
+            <div class="morph-text-container"><span class="morph-menu-label">MENU</span><span
+                    class="morph-close-label">CLOSE</span></div>
+        </div>
+    </nav>
+    <div id="nav-overlay" role="dialog"><a class="nav-link" data-nav="page1">HOME</a><a class="nav-link"
+            data-nav="page2">REPAIR HUB</a><a class="nav-link" data-nav="page3">INTEL</a><a class="nav-link"
+            href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener">FACEBOOK</a></div>
+
+    <!-- ===== PAGE 1 ===== -->
+    <main id="page1" class="page active">
+        <header id="hero">
+            <div id="hero-gridscan"><canvas id="gridscan-canvas"></canvas></div>
+
+            <div class="hero-layout">
+                <!-- LEFT: Content -->
+                <div class="hero-content">
+                    <h1 class="hero-headline" id="heroHeadline">
+                        <span class="hero-line">OLONGAPO'S</span>
+                        <span class="hero-line">TRUSTED REPAIR</span>
+                        <span class="hero-line hero-line-accent">SPECIALISTS.</span>
+                    </h1>
+
+                    <div class="hero-divider" id="heroDivider"></div>
+
+                    <p class="hero-sub" id="heroSub">
+                        Micro-Soldering &bull; Logic Board Repair &bull; LCD Resurrection<br>
+                        Serving Olongapo City Since Day One.
+                    </p>
+
+                    <p class="hero-location" id="heroLoc">
+                        📍 104 Rizal Avenue Extension, East Tapinac, Olongapo City<br>
+                        📞 0968 458 9577
+                    </p>
+
+                    <div class="hero-ctas" id="heroCtas">
+                        <a href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener" class="btn-primary">
+                            INQUIRE ON OUR PAGE →
+                        </a>
+                        <button class="btn-ghost" id="scrollToServices">CHECK REPAIR OPTIONS</button>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Phone (dramatic, bottom-clipped) -->
+                <div class="hero-phone-col" aria-hidden="true">
+                    <div class="hero-phone-inner">
+                        <img id="phone-inner-img" src="phone-inner.avif"
+                            alt="Transparent smartphone with visible internal circuit board layout">
+                        <canvas id="phone-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="trust-strip">
+            <div class="trust-track">
+                <span class="trust-item"><span class="check">✔</span> Same-Day Repairs</span><span
+                    class="trust-item"><span class="check">✔</span> OEM-Spec Parts</span><span class="trust-item"><span
+                        class="check">✔</span> Advanced Board-Level Diagnostics</span><span class="trust-item"><span
+                        class="check">✔</span> Located in East Tapinac, Olongapo</span><span class="trust-item"><span
+                        class="check">✔</span> Trusted by 1,000+ Local Devices</span><span class="trust-item"><span
+                        class="check">✔</span> No Fix, No Fee Policy</span>
+                <span class="trust-item"><span class="check">✔</span> Same-Day Repairs</span><span
+                    class="trust-item"><span class="check">✔</span> OEM-Spec Parts</span><span class="trust-item"><span
+                        class="check">✔</span> Advanced Board-Level Diagnostics</span><span class="trust-item"><span
+                        class="check">✔</span> Located in East Tapinac, Olongapo</span><span class="trust-item"><span
+                        class="check">✔</span> Trusted by 1,000+ Local Devices</span><span class="trust-item"><span
+                        class="check">✔</span> No Fix, No Fee Policy</span>
+            </div>
+        </section>
+        <section id="services-section" aria-label="Repair services">
+            <div id="services-sticky">
+                <div id="svc-hud">
+                    <div class="svc-hud-row-top"><span>WHAT WE <strong>RECOVER</strong></span>
+                        <div class="svc-hud-line"></div><span>SYS.<strong>READY</strong></span>
+                    </div>
+                    <div class="svc-hud-row" style="justify-content:center;">
+                        <!-- <span id="svc-hud-cat" style="font-size:0.55rem;letter-spacing:3px;">SCROLL TO EXPLORE</span> -->
+                    </div>
+                    <div class="svc-hud-row"><span>ACETECH_SERVICES</span>
+                        <div class="svc-hud-line"></div><span>PROGRESS: <strong id="svc-hud-vel">0%</strong></span>
+                    </div>
+                </div>
+                <div id="svc-viewport">
+                    <div id="svc-world"></div>
+                </div>
+            </div>
+        </section>
+        <section id="why-section">
+            <h2 class="section-title reveal">WHY OLONGAPO TRUSTS <span class="accent">ACE</span></h2>
+            <div class="why-grid">
+                <div class="reveal-left">
+                    <ul class="why-list">
+                        <li>Led by <strong>ACE</strong> — Owner & Lead Technician</li>
+                        <li>Advanced Micro-Soldering Specialist</li>
+                        <li>Board-Level Repair Expertise (not just part-swapping)</li>
+                        <li>Transparent Diagnostics — you see what's wrong</li>
+                        <li>Repair-First Mindset (never upsell unnecessary replacements)</li>
+                        <li>Located in the heart of East Tapinac, Olongapo City</li>
+                        <li>Serving Olongapo, Subic, and surrounding Zambales areas</li>
+                    </ul>
+                </div>
+                <div class="reveal-right">
+                    <div class="bio-card">
+                        <div class="bio-line">NAME: <span class="val">ACE</span></div>
+                        <div class="bio-line">ROLE: <span class="val">Owner & Lead Technician</span></div>
+                        <div class="bio-line">SPEC: <span class="val">Micro-Soldering, Board Repair</span></div>
+                        <div class="bio-line">BASE: <span class="val">Olongapo City, PH</span></div>
+                        <div class="bio-line">STATUS: <span class="status-dot" id="bioStatusDot"></span><span
+                                id="bioStatusText" class="val"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section-cta">
+                <button class="btn-primary" data-nav="page3">FIND OUT MORE ABOUT US →</button>
+            </div>
+        </section>
+        <section id="social-proof">
+            <h2 class="section-title reveal">REAL REPAIRS<span class="accent">.</span> REAL CUSTOMERS<span
+                    class="accent">.</span> REAL RESULTS<span class="accent">.</span></h2>
+            <div class="fb-preview-grid" id="fbPreviewGrid"></div><button class="btn-primary" data-nav="page2">VIEW LIVE
+                REPAIR FEED →</button>
+        </section>
+        <section id="cta-strip">
+            <h2 class="cta-headline reveal">YOUR DEVICE ISN'T DEAD.<br>IT'S JUST WAITING FOR <span
+                    class="accent">ACETECH</span>.</h2>
+            <p class="cta-sub">104 Rizal Avenue Extension, East Tapinac, Olongapo City<br>Call: 0968 458 9577</p>
+            <p class="cta-fb-prompt">Send us a message on Facebook to initiate your repair ↓</p><a
+                href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener" class="btn-primary">MESSAGE US
+                ON FACEBOOK →</a>
+            <p class="geo-service">Serving Olongapo City &bull; East Tapinac &bull; Subic Bay Area &bull; Zambales</p>
+        </section>
+    </main>
+
+    <!-- ===== PAGE 2 ===== -->
+    <main id="page2" class="page">
+        <section id="bento-section">
+            <h2 class="section-title reveal" style="padding-top:5rem;">THE REPAIR <span class="accent">HUB</span></h2>
+            <div class="bento-grid">
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🖥️</div>
+                    <h3 class="bento-title">Display Repair</h3>
+                    <p class="bento-desc">Screens, LCDs, OLED panels — from hairline cracks to full replacements.
+                        OEM-spec parts, precision installation.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🔋</div>
+                    <h3 class="bento-title">Battery & Power</h3>
+                    <p class="bento-desc">Battery degradation, charging port failures, Power IC issues — full power
+                        system diagnostics and component-level repair.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="bento-icon">🧠</div>
+                    <h3 class="bento-title">Logic Board</h3>
+                    <p class="bento-desc">Micro-soldering, short circuit detection, IC chip replacement — the repairs
+                        other shops won't touch.</p>
+                </article>
+            </div>
+        </section>
+        <section id="fb-portfolio">
+            <h2 class="section-title reveal">REPAIR <span class="accent">PORTFOLIO</span></h2>
+            <div class="fb-masonry" id="fbPortfolioGrid"></div>
+        </section>
+        <section id="fb-cta-section">
+            <p class="fb-cta-text reveal">Direct message on our page <br> for more info <span
+                    style="color:var(--red);">❗</span>
+            </p><a href="https://www.facebook.com/Acetech07" target="_blank" rel="noopener"
+                class="btn-primary reveal">VISIT OUR FACEBOOK PAGE →</a>
+        </section>
+    </main>
+
+    <!-- ===== PAGE 3 ===== -->
+    <main id="page3" class="page">
+        <section id="story-section">
+            <h2 class="section-title reveal" style="padding-top:5rem;">THE TECHNICIAN BEHIND <span class="accent">THE
+                    BENCH</span></h2>
+            <article class="story-text reveal">
+                <p>ACE is the owner and lead technician of Acetech Repair and Phones Accessories, based in East Tapinac,
+                    Olongapo City. With expertise in advanced micro-soldering and board-level diagnostics, Ace has built
+                    a reputation as Olongapo's go-to specialist for repairs that other shops turn away.</p>
+                <p>What sets Acetech apart is a repair-first philosophy: diagnose accurately, fix transparently, and
+                    never replace what can be saved.</p>
+                <p>From iPhones to laptops, from logic boards to custom jailbreaks — if it's broken, Ace fixes it.</p>
+            </article>
+            <div class="story-contact reveal">📍 104 Rizal Avenue Extension, East Tapinac, Olongapo City, 2200
+                Zambales<br>📞 0968 458 9577</div>
+        </section>
+        <section id="terminal-section">
+            <div class="terminal-window reveal">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div><span class="terminal-title">ACETECH_SCHEMA.json — READ
+                        ONLY</span>
+                </div>
+                <div class="terminal-body" id="terminalBody"></div>
+            </div>
+        </section>
+        <section id="map-section">
+            <h2 class="section-title reveal">FIND <span class="accent">US</span></h2>
+            <div class="map-wrapper reveal"><iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.2!2d120.27989!3d14.82767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33967163642955e5%3A0xfd98e14de15b3f23!2sAcetech!5e0!3m2!1sen!2sph!4v1737000000000!5m2!1sen!2sph"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Acetech location"></iframe></div>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <div class="footer-grid">
+            <div><img src="acetech-logo.avif" alt="Acetech Repair" class="footer-logo-img">
+                <div class="footer-loc">Olongapo City, Zambales</div>
+                <div class="footer-copyright">&copy; 2025 Acetech Repair and Phones Accessories. All rights reserved.
+                </div>
+            </div>
+            <div>
+                <div class="footer-heading">Navigation</div>
+                <ul class="footer-links">
+                    <li data-nav="page1">Home</li>
+                    <li data-nav="page2">Repair Hub</li>
+                    <li data-nav="page3">Intel</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-heading">Status</div>
+                <div class="footer-status">📞 <a href="tel:09684589577">0968 458 9577</a><br>REPAIR_STATUS: <span
+                        class="status-dot" id="footerStatusDot"></span><span id="footerStatusText"></span><br>Mon–Sat |
+                    10:00 AM – 9:00 PM<br>Sunday: CLOSED</div>
+                <div class="footer-clock">PH TIME: <span class="clock-time" id="phClock">--:--:-- --</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">ACETECH REPAIR &bull; 104 RIZAL AVENUE EXTENSION, EAST TAPINAC, OLONGAPO CITY, 2200
+            ZAMBALES</div>
+
+        <div id="acetech-font-section">
+            <a href="https://www.facebook.com/Acetech07" target="_blank" title="Visit Acetech on Facebook">
+                <p id="acetech-font-title">ACETECH</p>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            /* ============================
+               BUSINESS HOURS (PH TIME)
+               ============================ */
+            function getPhNow() {
+                return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+            }
+            function isAcetechOpen() {
+                var now = getPhNow();
+                var d = now.getDay(), h = now.getHours(), m = now.getMinutes(), t = h + m / 60;
+                if (d === 0) return false;
+                if (d === 1 || d === 2) return t >= 10.5 && t < 21;
+                if (d === 3) return t >= 10.5 && t < 21;
+                if (d === 4) return t >= 10 && t < 21;
+                if (d === 5) return t >= 10 && t < 21;
+                if (d === 6) return t >= 10 && t < 21;
+                return false;
+            }
+            function updateStatus() {
+                var o = isAcetechOpen();
+                document.querySelectorAll('.status-dot').forEach(function (d) { d.className = 'status-dot ' + (o ? 'open' : 'closed'); });
+                ['bioStatusText', 'footerStatusText'].forEach(function (id) { var e = document.getElementById(id); if (e) e.textContent = o ? '[ONLINE]' : '[CLOSED]'; });
+            }
+            function updateClock() {
+                var now = getPhNow();
+                var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+                var ampm = h >= 12 ? 'PM' : 'AM';
+                var h12 = h % 12 || 12;
+                var str = (h12 < 10 ? '0' : '') + h12 + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + ' ' + ampm;
+                var el = document.getElementById('phClock');
+                if (el) el.textContent = str;
+            }
+            updateStatus(); updateClock();
+            setInterval(updateStatus, 60000);
+            setInterval(updateClock, 1000);
+
+            /* ============================
+               FB EMBED BUILDER
+               ============================ */
+            var FB_PREVIEW = ['pfbid0cZcAW132Lx8uKprXzwpsZvY6pdr64TPHRRMpDf6aBQcS7Ss7iYXNM5SqmPukHDsxl', 'pfbid0creJDcmsAse478D8utbns6mtwL8LbB58DSExJ7vWdM4eLXWNpqAkj8ATf1A5Tfbrl', 'pfbid02MivP9Z52SBjoJWZ2ns4Y5qvZo47xDwbBuEqLPDkcr3r9ChSpbEwgT2YqMAN2HSp6l', 'pfbid0ZKmN5QtfYxL9pdGEp1WLJ1XTMgsVjFwa8KpgmMC9D3RWfWAHGFxtcevKXQRV6at9l'];
+            var FB_PORTFOLIO = ['pfbid0cZcAW132Lx8uKprXzwpsZvY6pdr64TPHRRMpDf6aBQcS7Ss7iYXNM5SqmPukHDsxl', 'pfbid02MivP9Z52SBjoJWZ2ns4Y5qvZo47xDwbBuEqLPDkcr3r9ChSpbEwgT2YqMAN2HSp6l', 'pfbid0creJDcmsAse478D8utbns6mtwL8LbB58DSExJ7vWdM4eLXWNpqAkj8ATf1A5Tfbrl', 'pfbid0ZKmN5QtfYxL9pdGEp1WLJ1XTMgsVjFwa8KpgmMC9D3RWfWAHGFxtcevKXQRV6at9l', 'pfbid0EBePJXegWevorLRwVuEP5Kx9pKqCyXfMQ6fEfGksErV92xWLnHWV1SDgixzzob46l', 'pfbid0osXHdDyS8kX1CFLjw8Z7tLRWNKWQ6cqjLfVws1ptJdR1ir4gYZpAMyuCYy4avrd6l', 'pfbid032E3rAwXhaBoNFRS5wu89pGyzEkd4A6sab7S8wwS2vBfeFM6JafjYn3RSVoy8fg2Vl', 'pfbid03nNKFkrYMkvcgJn27WoaovkWkJ1T2AGGZxmJjmN5Ff15nfikGayek662dpefaKLml', 'pfbid0TCHb3jEFi6MQmM6grCXPycvNCiKiBKysNdfAAYNtMZPQXkRrr72HXtg11pMGxmmSl', 'pfbid0pRjsZ1cx1E6BFb3FBLFNebGaUsRHdU6cMsnAPULxtDeX618yQC2V6zLzDxJnY4XUl'];
+
+            function buildFbEmbed(postId) {
+                var url = 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAcetech07%2Fposts%2F' + postId + '&show_text=true&lazy=true';
+                var w = document.createElement('div'); w.className = 'fb-embed-wrapper reveal';
+                // Overlay blocks ALL iframe interaction — prevents lag from FB iframe hover
+                var overlay = document.createElement('a'); overlay.className = 'fb-link-overlay'; overlay.href = 'https://www.facebook.com/Acetech07'; overlay.target = '_blank'; overlay.rel = 'noopener'; overlay.setAttribute('aria-label', 'View on Facebook');
+                var iframe = document.createElement('iframe'); iframe.src = url; iframe.scrolling = 'no'; iframe.frameBorder = '0'; iframe.loading = 'lazy'; iframe.allow = 'web-share'; iframe.style.pointerEvents = 'none';
+                w.appendChild(overlay); w.appendChild(iframe);
+                return w;
+            }
+
+            var previewGrid = document.getElementById('fbPreviewGrid');
+            FB_PREVIEW.forEach(function (id) { previewGrid.appendChild(buildFbEmbed(id)); });
+            var portfolioGrid = document.getElementById('fbPortfolioGrid');
+            FB_PORTFOLIO.forEach(function (id) { portfolioGrid.appendChild(buildFbEmbed(id)); });
+
+            /* ============================
+               GLITCH GRID CELLS
+               ============================ */
+            var glitchOverlay = document.getElementById('glitch-overlay');
+            for (var i = 0; i < 100; i++) { var c = document.createElement('div'); c.className = 'glitch-cell'; glitchOverlay.appendChild(c); }
+
+            /* ============================
+               BOOT LOADER
+               ============================ */
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    var l = document.getElementById('boot-loader'); l.classList.add('fade-out');
+                    setTimeout(function () { l.style.display = 'none'; initHeroAnimation(); initScrollAnimations(); initPhoneEffect(); initServicesTunnel(); initGridScan(); }, 500);
+                }, 1200);
+            });
+
+            /* ============================
+               LENIS
+               ============================ */
+            var lenis;
+            function initLenis() {
+                if (lenis) lenis.destroy();
+                lenis = new Lenis({ duration: 1.2, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, direction: 'vertical', gestureDirection: 'vertical', smooth: true, smoothTouch: false, touchMultiplier: 2 });
+                lenis.on('scroll', ScrollTrigger.update);
+                gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+                gsap.ticker.lagSmoothing(0);
+            }
+            initLenis();
+
+            /* ============================
+               GLOBAL PARTICLE CANVAS
+               ============================ */
+            function initGlobalParticles() {
+                var canvas = document.getElementById('global-particles');
+                if (!canvas) return;
+                var ctx = canvas.getContext('2d');
+                var w, h, size, pts, animId;
+
+                // mobile gets fewer particles — GPU thanks us later
+                var isMobile = window.innerWidth < 768;
+                var N = isMobile ? 25 : 50;
+                var CONNECT_DIST = 120;
+                var CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
+                var FOV = 1000;
+
+                function createParticles() {
+                    pts = [];
+                    size = Math.min(w, h) * 0.8;
+                    for (var i = 0; i < N; i++) {
+                        var theta = Math.random() * Math.PI * 2;
+                        var phi = Math.acos(Math.random() * 2 - 1);
+                        var r = size * (0.3 + Math.random() * 0.7);
+                        pts.push({
+                            x: r * Math.sin(phi) * Math.cos(theta),
+                            y: r * Math.sin(phi) * Math.sin(theta),
+                            z: r * Math.cos(phi),
+                            vx: (Math.random() - 0.5) * 0.3,
+                            vy: (Math.random() - 0.5) * 0.3,
+                            vz: (Math.random() - 0.5) * 0.3
+                        });
+                    }
+                }
+
+                function resize() {
+                    w = window.innerWidth;
+                    h = window.innerHeight;
+                    canvas.width = w;
+                    canvas.height = h;
+
+                    // recalc on resize so particles stay in bounds
+                    var wasMobile = isMobile;
+                    isMobile = w < 768;
+                    N = isMobile ? 25 : 50;
+                    if (isMobile !== wasMobile) createParticles();
+                    else size = Math.min(w, h) * 0.8;
+                }
+
+                var resizeTimer;
+                window.addEventListener('resize', function () {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(resize, 150);
+                });
+                resize();
+                createParticles();
+
+                var rx = 0, ry = 0;
+
+                function render() {
+                    // full clear — no more ghost trails
+                    ctx.clearRect(0, 0, w, h);
+
+                    rx += 0.0015;
+                    ry += 0.002;
+
+                    var cosRy = Math.cos(ry), sinRy = Math.sin(ry);
+                    var cosRx = Math.cos(rx), sinRx = Math.sin(rx);
+                    var cx = w / 2, cy = h / 2;
+                    var proj = [];
+
+                    // update + project in one pass
+                    for (var i = 0; i < pts.length; i++) {
+                        var p = pts[i];
+
+                        // move
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.z += p.vz;
+
+                        // bounce off bounding sphere
+                        if (p.x > size || p.x < -size) p.vx *= -1;
+                        if (p.y > size || p.y < -size) p.vy *= -1;
+                        if (p.z > size || p.z < -size) p.vz *= -1;
+
+                        // rotate Y then X — trig cached outside loop
+                        var x1 = p.x * cosRy - p.z * sinRy;
+                        var z1 = p.z * cosRy + p.x * sinRy;
+                        var y1 = p.y * cosRx - z1 * sinRx;
+                        var z2 = z1 * cosRx + p.y * sinRx;
+
+                        // perspective project
+                        var s = FOV / (FOV + z2);
+                        var sx = x1 * s + cx;
+                        var sy = y1 * s + cy;
+
+                        var a = Math.max(0.1, (z2 + size) / (2 * size));
+                        proj.push({ x: sx, y: sy, s: s, a: a });
+
+                        // draw particle dot
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, 1.5 * s, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(225,29,42,' + (a * 0.6) + ')';
+                        ctx.fill();
+                    }
+
+                    // connection lines — squared distance avoids sqrt
+                    ctx.lineWidth = 0.4;
+                    for (var i = 0; i < proj.length; i++) {
+                        for (var j = i + 1; j < proj.length; j++) {
+                            var dx = proj[i].x - proj[j].x;
+                            var dy = proj[i].y - proj[j].y;
+                            var dSq = dx * dx + dy * dy;
+
+                            if (dSq < CONNECT_DIST_SQ) {
+                                var op = 1 - Math.sqrt(dSq) / CONNECT_DIST;
+                                ctx.strokeStyle = 'rgba(225,29,42,' + (op * 0.08) + ')';
+                                ctx.beginPath();
+                                ctx.moveTo(proj[i].x, proj[i].y);
+                                ctx.lineTo(proj[j].x, proj[j].y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+
+                    animId = requestAnimationFrame(render);
+                }
+
+                // respect reduced motion
+                var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (!motionQuery.matches) {
+                    render();
+                }
+                motionQuery.addEventListener('change', function () {
+                    if (motionQuery.matches) {
+                        cancelAnimationFrame(animId);
+                        ctx.clearRect(0, 0, w, h);
+                    } else {
+                        render();
+                    }
+                });
+            }
+            initGlobalParticles();
+
+            /* ============================
+               HERO GRIDSCAN WEBGL (only when hero visible)
+               ============================ */
+            function initGridScan() {
+                var wrapper = document.getElementById('hero-gridscan'); var canvas = document.getElementById('gridscan-canvas');
+                if (!wrapper || !canvas) return;
+                var isMobile = window.matchMedia('(pointer:coarse)').matches;
+                var gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false });
+                if (!gl) return;
+                gl.getExtension('OES_standard_derivatives');
+
+                var VERT = 'attribute vec2 a_pos;varying vec2 v_uv;void main(){v_uv=a_pos*0.5+0.5;gl_Position=vec4(a_pos,0.0,1.0);}';
+                var FRAG = 'precision highp float;uniform vec3 u_res;uniform float u_time;uniform vec2 u_skew;uniform vec3 u_lineCol;uniform vec3 u_scanCol;uniform float u_gridScale;uniform float u_lineThick;uniform float u_scanOpacity;uniform float u_noise;uniform float u_scanGlow;uniform float u_scanSoft;uniform float u_phaseTaper;uniform float u_scanDur;uniform float u_scanDelay;uniform float u_scanDir;varying vec2 v_uv;float smoother01(float a,float b,float x){float t=clamp((x-a)/max(1e-5,b-a),0.0,1.0);return t*t*t*(t*(t*6.0-15.0)+10.0);}void main(){vec2 p=(2.0*v_uv*u_res.xy-u_res.xy)/u_res.y;vec3 rd=normalize(vec3(p,2.0));rd.xy+=clamp(u_skew,vec2(-0.7),vec2(0.7))*rd.z;float minT=1e20;float hitIsY=1.0;vec2 gridUV=vec2(0.0);float gs=max(1e-5,u_gridScale);for(int i=0;i<4;i++){float isY=float(i<2);float pos=mix(-0.2,0.2,float(i))*isY+mix(-0.5,0.5,float(i-2))*(1.0-isY);float den=isY*rd.y+(1.0-isY)*rd.x;float t=pos/den;vec3 h=rd*t;bool use=t>0.0&&t<minT;gridUV=use?mix(h.zy,h.xz,isY)/gs:gridUV;minT=use?t:minT;hitIsY=use?isY:hitIsY;}vec3 hit=rd*minT;float dist=length(hit);float fx=fract(gridUV.x),fy=fract(gridUV.y);float ax=min(fx,1.0-fx);float ay=min(fy,1.0-fy);float wx=fwidth(gridUV.x),wy=fwidth(gridUV.y);float halfPx=max(0.0,u_lineThick)*0.5;float lineX=1.0-smoothstep(halfPx*wx,halfPx*wx+wx,ax);float lineY=1.0-smoothstep(halfPx*wy,halfPx*wy+wy,ay);vec2 g2=(hitIsY>0.5?hit.xz:hit.zy)/gs;float fx2=fract(g2.x),fy2=fract(g2.y);float ax2=min(fx2,1.0-fx2);float ay2=min(fy2,1.0-fy2);float wx2=fwidth(g2.x),wy2=fwidth(g2.y);float lX2=1.0-smoothstep(halfPx*wx2,halfPx*wx2+wx2,ax2);float lY2=1.0-smoothstep(halfPx*wy2,halfPx*wy2+wy2,ay2);float edgeDist=mix(min(abs(hit.y+0.2),abs(hit.y-0.2)),min(abs(hit.x+0.5),abs(hit.x-0.5)),hitIsY);float altMask=max(lX2,lY2)*(1.0-smoothstep(gs*0.5,gs*2.0,edgeDist));float lineMask=max(max(lineX,lineY),altMask);float fade=exp(-dist*2.0);float dur=max(0.05,u_scanDur);float del=max(0.0,u_scanDelay);float zMax=2.0;float sigma=max(0.001,0.18*max(0.1,u_scanGlow)*u_scanSoft);float cycle=dur+del;float tC=mod(u_time,cycle);float phase=clamp((tC-del)/dur,0.0,1.0);if(u_scanDir>1.5){float t2=mod(max(0.0,u_time-del),2.0*dur);phase=t2<dur?t2/dur:1.0-(t2-dur)/dur;}float scanZ=phase*zMax;float dz=abs(hit.z-scanZ);float pulse=exp(-0.5*dz*dz/(sigma*sigma));float aura=exp(-0.5*dz*dz/(sigma*sigma*4.0))*0.25;float taper=clamp(u_phaseTaper,0.0,0.49);float win=smoother01(0.0,taper,phase)*(1.0-smoother01(1.0-taper,1.0,phase));float scanPulse=pulse*win*clamp(u_scanOpacity,0.0,1.0);float scanAura=aura*win*clamp(u_scanOpacity,0.0,1.0);vec3 col=u_lineCol*lineMask*fade+u_scanCol*scanPulse+u_scanCol*scanAura;float n=fract(sin(dot(gl_FragCoord.xy+vec2(u_time*123.4),vec2(12.9898,78.233)))*43758.5453);col+=(n-0.5)*u_noise;col=clamp(col,0.0,1.0);float alpha=clamp(max(lineMask,scanPulse),0.0,1.0);gl_FragColor=vec4(col,alpha);}';
+
+                function compileS(t, s) { var sh = gl.createShader(t); gl.shaderSource(sh, s); gl.compileShader(sh); if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) { console.error(gl.getShaderInfoLog(sh)); return null; } return sh; }
+                function linkP(v, f) { var p = gl.createProgram(); gl.attachShader(p, v); gl.attachShader(p, f); gl.linkProgram(p); if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(p)); return null; } return p; }
+
+                var vs = compileS(gl.VERTEX_SHADER, VERT); var fs = compileS(gl.FRAGMENT_SHADER, '#extension GL_OES_standard_derivatives : enable\n' + FRAG);
+                var prog = linkP(vs, fs); gl.useProgram(prog);
+                var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+                var aPos = gl.getAttribLocation(prog, 'a_pos'); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+                var loc = {};['u_res', 'u_time', 'u_skew', 'u_lineCol', 'u_scanCol', 'u_gridScale', 'u_lineThick', 'u_scanOpacity', 'u_noise', 'u_scanGlow', 'u_scanSoft', 'u_phaseTaper', 'u_scanDur', 'u_scanDelay', 'u_scanDir'].forEach(function (n) { loc[n] = gl.getUniformLocation(prog, n); });
+
+                // Acetech-themed colors: dark red grid, red scan
+                var CFG = { linesColor: [0.18, 0.06, 0.08], scanColor: [0.88, 0.11, 0.16], gridScale: 0.1, lineThickness: isMobile ? 0.6 : 1.0, noiseIntensity: 0.008, scanOpacity: 0.35, scanGlow: 0.5, scanSoftness: 2.0, scanDuration: 2.5, scanDelay: 2.0, scanDirection: 2, phaseTaper: 0.9, sensitivity: isMobile ? 0.15 : 0.55, snapBackMs: 250 };
+
+                var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2);
+                var mouseX = 0, mouseY = 0, skewX = 0, skewY = 0, leaveTimer = null;
+                var gsRunning = false;
+
+                function resizeGS() { var w = wrapper.clientWidth, h = wrapper.clientHeight; canvas.width = w * dpr; canvas.height = h * dpr; gl.viewport(0, 0, canvas.width, canvas.height); }
+                resizeGS(); window.addEventListener('resize', resizeGS);
+
+                var skewScale = isMobile ? 0.03 : 0.14; var smoothTime = isMobile ? 0.4 : 0.15;
+
+                if (!isMobile) {
+                    var heroEl = document.getElementById('hero');
+                    heroEl.addEventListener('mousemove', function (e) { var r = wrapper.getBoundingClientRect(); mouseX = ((e.clientX - r.left) / r.width) * 2 - 1; mouseY = -(((e.clientY - r.top) / r.height) * 2 - 1); if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; } });
+                    heroEl.addEventListener('mouseleave', function () { leaveTimer = setTimeout(function () { mouseX = 0; mouseY = 0; }, CFG.snapBackMs); });
+                }
+
+                var gsStart = performance.now();
+                function gsFrame() {
+                    if (!gsRunning) { requestAnimationFrame(gsFrame); return; }
+                    var now = performance.now(); var dt = Math.min(0.1, (now - gsStart) / 1000); gsStart = now;
+                    var ease = 1 - Math.exp(-dt / Math.max(0.01, smoothTime));
+                    skewX += (mouseX * skewScale - skewX) * ease; skewY += (-mouseY * skewScale * 1.4 - skewY) * ease;
+                    var t = now / 1000;
+                    gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+                    gl.uniform3f(loc.u_res, canvas.width, canvas.height, dpr); gl.uniform1f(loc.u_time, t); gl.uniform2f(loc.u_skew, skewX, skewY);
+                    gl.uniform3fv(loc.u_lineCol, CFG.linesColor); gl.uniform3fv(loc.u_scanCol, CFG.scanColor);
+                    gl.uniform1f(loc.u_gridScale, CFG.gridScale); gl.uniform1f(loc.u_lineThick, CFG.lineThickness); gl.uniform1f(loc.u_scanOpacity, CFG.scanOpacity); gl.uniform1f(loc.u_noise, CFG.noiseIntensity); gl.uniform1f(loc.u_scanGlow, CFG.scanGlow); gl.uniform1f(loc.u_scanSoft, CFG.scanSoftness); gl.uniform1f(loc.u_phaseTaper, CFG.phaseTaper); gl.uniform1f(loc.u_scanDur, CFG.scanDuration); gl.uniform1f(loc.u_scanDelay, CFG.scanDelay); gl.uniform1f(loc.u_scanDir, CFG.scanDirection);
+                    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                    requestAnimationFrame(gsFrame);
+                }
+
+                // IntersectionObserver: only render when hero is visible
+                var obs = new IntersectionObserver(function (entries) { gsRunning = entries[0].isIntersecting; }, { threshold: 0.05 });
+                obs.observe(document.getElementById('hero'));
+                requestAnimationFrame(gsFrame);
+            }
+
+            /* ============================
+            PHONE GLITCH MASK (lerp eased)
+            ============================ */
+            function initPhoneEffect() {
+                var hero = document.getElementById('hero');
+                var phoneCanvas = document.getElementById('phone-canvas');
+                var innerImg = document.getElementById('phone-inner-img');
+                if (!phoneCanvas || !innerImg || !hero) return;
+
+                var ctx = phoneCanvas.getContext('2d');
+                var outerImg = new Image();
+                outerImg.src = 'phone-outer.avif';
+
+                var mouseX = -9999, mouseY = -9999, lerpX = -9999, lerpY = -9999;
+                var isOver = false, frame = 0, hasActiveBlocks = false;
+                var blockNoise = [], blockReveal = [];
+                var BLOCK = 16, RADIUS = 400, cols = 0, rows = 0, LERP = 0.08;
+                var STAGGER_SPEED = 0.12, FADE_SPEED = 0.06;
+                var MAX_CANVAS = 600;
+                var canvasScale = 1;
+
+                outerImg.onload = function () {
+                    canvasScale = Math.min(MAX_CANVAS / outerImg.naturalWidth, MAX_CANVAS / outerImg.naturalHeight, 1);
+                    phoneCanvas.width = Math.round(outerImg.naturalWidth * canvasScale);
+                    phoneCanvas.height = Math.round(outerImg.naturalHeight * canvasScale);
+                    RADIUS = 600 * canvasScale;
+
+                    cols = Math.ceil(phoneCanvas.width / BLOCK);
+                    rows = Math.ceil(phoneCanvas.height / BLOCK);
+
+                    for (var r = 0; r < rows; r++) {
+                        blockNoise[r] = [];
+                        blockReveal[r] = [];
+                        for (var c = 0; c < cols; c++) {
+                            blockNoise[r][c] = Math.random();
+                            blockReveal[r][c] = 0;
+                        }
+                    }
+                    renderP();
+                };
+
+                hero.addEventListener('mousemove', function (e) {
+                    var r = phoneCanvas.getBoundingClientRect();
+                    var sx = phoneCanvas.width / r.width, sy = phoneCanvas.height / r.height;
+                    mouseX = (e.clientX - r.left) * sx;
+                    mouseY = (e.clientY - r.top) * sy;
+                    isOver = true;
+                });
+
+                hero.addEventListener('mouseleave', function () {
+                    isOver = false;
+                    mouseX = -9999;
+                    mouseY = -9999;
+                });
+
+                function lerpF(a, b, t) { return a + (b - a) * t; }
+
+                function renderP() {
+                    if (!outerImg.complete || !outerImg.naturalWidth) { requestAnimationFrame(renderP); return; }
+
+                    if (isOver && mouseX > -9000) {
+                        if (lerpX < -9000) { lerpX = mouseX; lerpY = mouseY; }
+                        lerpX = lerpF(lerpX, mouseX, LERP);
+                        lerpY = lerpF(lerpY, mouseY, LERP);
+                    } else {
+                        lerpX = lerpF(lerpX, -9999, 0.05);
+                        lerpY = lerpF(lerpY, -9999, 0.05);
+                    }
+
+                    ctx.clearRect(0, 0, phoneCanvas.width, phoneCanvas.height);
+                    ctx.drawImage(outerImg, 0, 0, phoneCanvas.width, phoneCanvas.height);
+
+                    // Skip full grid loop when nothing is active
+                    if (!isOver && lerpX < -9000 && !hasActiveBlocks) {
+                        requestAnimationFrame(renderP);
+                        return;
+                    }
+
+                    if (frame % 6 === 0) {
+                        for (var r = 0; r < rows; r++)
+                            for (var c = 0; c < cols; c++)
+                                if (Math.random() < 0.04) blockNoise[r][c] = Math.random();
+                    }
+
+                    hasActiveBlocks = false;
+
+                    for (var r = 0; r < rows; r++) {
+                        for (var c = 0; c < cols; c++) {
+                            var bx = c * BLOCK + BLOCK / 2, by = r * BLOCK + BLOCK / 2;
+
+                            if (lerpX > -9000) {
+                                var dx = bx - lerpX, dy = by - lerpY;
+                                var dist = Math.sqrt(dx * dx + dy * dy);
+                                if (dist < RADIUS) {
+                                    var normDist = dist / RADIUS;
+                                    var delayFactor = normDist * normDist;
+                                    var target = 1 - delayFactor * 0.7;
+                                    var noiseOffset = (blockNoise[r][c] - 0.5) * 0.3;
+                                    target = Math.max(0, Math.min(1, target + noiseOffset));
+                                    blockReveal[r][c] += (target - blockReveal[r][c]) * STAGGER_SPEED;
+                                } else {
+                                    blockReveal[r][c] += (0 - blockReveal[r][c]) * FADE_SPEED;
+                                }
+                            } else {
+                                blockReveal[r][c] += (0 - blockReveal[r][c]) * FADE_SPEED;
+                            }
+
+                            if (blockReveal[r][c] > 0.01) hasActiveBlocks = true;
+
+                            if (blockReveal[r][c] > 0.15) {
+                                var gx = 0;
+                                if (frame % 3 === 0 && Math.random() > 0.92)
+                                    gx = Math.round((Math.random() - 0.5) * 2) * BLOCK;
+                                ctx.clearRect(c * BLOCK + gx, r * BLOCK, BLOCK, BLOCK);
+                            }
+                        }
+                    }
+
+                    if (lerpX > -9000 && frame % 5 === 0 && Math.random() > 0.6) {
+                        var ly = Math.round(lerpY / BLOCK) * BLOCK + Math.round((Math.random() - 0.5) * 4) * BLOCK;
+                        var lw = BLOCK * (3 + Math.floor(Math.random() * 6));
+                        var lx = Math.round(lerpX / BLOCK) * BLOCK - lw / 2;
+                        ctx.clearRect(lx, ly, lw, BLOCK);
+                    }
+
+                    frame++;
+                    requestAnimationFrame(renderP);
+                }
+            }
+
+            /* ============================
+               HERO ANIMATION
+               ============================ */
+            function initHeroAnimation() {
+                /* Split each .hero-line into chars */
+                document.querySelectorAll('.hero-line').forEach(function (line) {
+                    var text = line.textContent;
+                    line.innerHTML = '';
+                    var words = text.split(' ');
+                    words.forEach(function (word, wi) {
+                        var ww = document.createElement('span');
+                        ww.style.cssText = 'display:inline-block;white-space:nowrap;';
+                        word.split('').forEach(function (ch) {
+                            var s = document.createElement('span');
+                            s.className = 'char';
+                            s.textContent = ch;
+                            ww.appendChild(s);
+                        });
+                        line.appendChild(ww);
+                        if (wi < words.length - 1) {
+                            line.appendChild(document.createTextNode(' '));
+                        }
+                    });
+                });
+
+                /* Chars are ready — reveal headline container (individual .char still opacity:0) */
+                gsap.set('.hero-headline', { opacity: 1 });
+
+                var tl = gsap.timeline({ delay: 0.2 });
+
+                /* Line 1 chars */
+                tl.to('.hero-line:nth-child(1) .char', {
+                    opacity: 1, y: 0,
+                    duration: 0.45,
+                    stagger: 0.025,
+                    ease: 'power3.out',
+                    force3D: true
+                })
+                    /* Line 2 chars — slight overlap */
+                    .to('.hero-line:nth-child(2) .char', {
+                        opacity: 1, y: 0,
+                        duration: 0.45,
+                        stagger: 0.025,
+                        ease: 'power3.out',
+                        force3D: true
+                    }, '-=0.2')
+                    /* Line 3 (accent) chars — punchy */
+                    .to('.hero-line-accent .char', {
+                        opacity: 1, y: 0,
+                        duration: 0.5,
+                        stagger: 0.03,
+                        ease: 'back.out(1.4)',
+                        force3D: true
+                    }, '-=0.15')
+                    /* Red dot pop-in */
+                    .to('.hero-line-accent::before', {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.4,
+                        ease: 'back.out(2)'
+                    }, '-=0.2')
+                    /* Divider line wipe */
+                    .to('#heroDivider', {
+                        opacity: 1,
+                        scaleX: 1,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    }, '-=0.25')
+                    /* Sub text */
+                    .to('#heroSub', {
+                        opacity: 1, y: 0,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    }, '-=0.2')
+                    /* Location */
+                    .to('#heroLoc', {
+                        opacity: 1, y: 0,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    }, '-=0.2')
+                    /* CTAs */
+                    .to('#heroCtas', {
+                        opacity: 1, y: 0,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    }, '-=0.15')
+                    /* Phone slides up into view */
+                    .fromTo('.hero-phone-inner', {
+                        y: 60,
+                        opacity: 0
+                    }, {
+                        y: '18%',
+                        opacity: 1,
+                        duration: 0.8,
+                        ease: 'power2.out'
+                    }, 0.3);
+
+                /* Animate the red dot via pseudo-element workaround
+                (GSAP can't directly animate ::before, so we use a CSS variable) */
+                var accentLine = document.querySelector('.hero-line-accent');
+                if (accentLine) {
+                    /* Set initial state */
+                    accentLine.style.setProperty('--dot-opacity', '0');
+                    accentLine.style.setProperty('--dot-scale', '0');
+
+                    /* Add dynamic style for the pseudo-element */
+                    var dotStyle = document.createElement('style');
+                    dotStyle.textContent = '.hero-line-accent::before { opacity: var(--dot-opacity, 0); transform: scale(var(--dot-scale, 0)); }';
+                    document.head.appendChild(dotStyle);
+
+                    /* Animate the CSS custom properties */
+                    gsap.to(accentLine, {
+                        '--dot-opacity': 1,
+                        '--dot-scale': 1,
+                        duration: 0.4,
+                        ease: 'back.out(2)',
+                        delay: 1.1
+                    });
+                }
+            }
+
+            /* ============================
+               SCROLL ANIMATIONS
+               ============================ */
+            function initScrollAnimations() {
+                ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
+                var pg = document.querySelector('.page.active'); if (!pg) return;
+                pg.querySelectorAll('.reveal').forEach(function (el) { gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', force3D: true, scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } }); });
+                pg.querySelectorAll('.reveal-left').forEach(function (el) { gsap.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', force3D: true, scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } }); });
+                pg.querySelectorAll('.reveal-right').forEach(function (el) { gsap.fromTo(el, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', force3D: true, scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } }); });
+                ScrollTrigger.refresh();
+            }
+
+            /* ============================
+               GLITCH TRANSITION + NAV
+               ============================ */
+            function glitchTransition(cb) {
+                var ov = document.getElementById('glitch-overlay'); var cells = ov.querySelectorAll('.glitch-cell');
+                ov.classList.add('active'); ov.style.opacity = '1';
+                gsap.fromTo(cells, { opacity: 0 }, {
+                    opacity: 1, duration: 0.06, stagger: { each: 0.008, from: 'random' }, ease: 'none',
+                    onStart: function () { cells.forEach(function (c) { var cols = ['#E11D2A', '#0B0B0B', '#0B0B0B', 'rgba(255,255,255,0.04)']; c.style.background = cols[Math.floor(Math.random() * cols.length)]; }); },
+                    onComplete: function () { if (cb) cb(); setTimeout(function () { gsap.to(cells, { opacity: 0, duration: 0.04, stagger: { each: 0.006, from: 'random' }, ease: 'none', onComplete: function () { ov.classList.remove('active'); ov.style.opacity = '0'; } }); }, 200); }
+                });
+            }
+            var currentPageId = 'page1';
+            function navigateTo(pid) {
+                if (pid === currentPageId) return; closeMenu();
+                glitchTransition(function () {
+                    document.getElementById(currentPageId).classList.remove('active'); document.getElementById(pid).classList.add('active'); currentPageId = pid;
+                    window.scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
+                    setTimeout(function () { initScrollAnimations(); if (pid === 'page3') initTerminalTypewriter(); }, 300);
+                });
+            }
+            document.querySelectorAll('[data-nav]').forEach(function (el) { el.addEventListener('click', function (e) { e.preventDefault(); navigateTo(el.getAttribute('data-nav')); }); });
+            document.getElementById('scrollToServices').addEventListener('click', function () { var t = document.getElementById('services-section'); if (lenis) lenis.scrollTo(t, { offset: -80 }); else t.scrollIntoView({ behavior: 'smooth' }); });
+
+            /* ============================
+               MENU MORPH
+               ============================ */
+            var menuOpen = false; var menuMorph = document.getElementById('menuMorph'); var navOverlay = document.getElementById('nav-overlay');
+            var menuLabel = menuMorph.querySelector('.morph-menu-label'); var closeLabel = menuMorph.querySelector('.morph-close-label'); var morphCircle = menuMorph.querySelector('.morph-circle');
+            function toggleMenu() { menuOpen = !menuOpen; gsap.to(menuLabel, { y: menuOpen ? -20 : 0, duration: 0.5, ease: 'power2.inOut' }); gsap.to(closeLabel, { y: menuOpen ? 0 : 20, duration: 0.5, ease: 'power2.inOut' }); var tl = gsap.timeline(); tl.to(morphCircle, { x: -10, scaleX: 2.5, borderRadius: '4px', duration: 0.2, ease: 'power1.out' }).to(morphCircle, { x: 0, scaleX: 1, borderRadius: '50%', duration: 0.2, ease: 'power1.in' }); navOverlay.classList.toggle('open', menuOpen); }
+            function closeMenu() { if (!menuOpen) return; menuOpen = false; gsap.to(menuLabel, { y: 0, duration: 0.5, ease: 'power2.inOut' }); gsap.to(closeLabel, { y: 20, duration: 0.5, ease: 'power2.inOut' }); navOverlay.classList.remove('open'); }
+            menuMorph.addEventListener('click', toggleMenu); menuMorph.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } });
+
+            /* ============================
+               CURSOR
+               ============================ */
+            (function () {
+                if (window.matchMedia('(pointer:coarse)').matches) return;
+                var cH = document.getElementById('cursorH'), cV = document.getElementById('cursorV'), cD = document.getElementById('cursorDot');
+                var fX = document.getElementById('cursorFilterX'), fY = document.getElementById('cursorFilterY');
+                var mouse = { x: 0, y: 0 }, pos = { x: 0, y: 0 }, running = false, hidden = false;
+                function lerp(a, b, n) { return (1 - n) * a + n * b; }
+                document.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; if (!running) { pos.x = mouse.x; pos.y = mouse.y; gsap.to([cH, cV, cD], { opacity: 1, duration: 0.6, ease: 'power3.out' }); running = true; renderC(); } else if (hidden) { hidden = false; gsap.to([cH, cV, cD], { opacity: 1, duration: 0.3 }); } });
+                function renderC() { pos.x = lerp(pos.x, mouse.x, 0.15); pos.y = lerp(pos.y, mouse.y, 0.15); gsap.set(cV, { x: pos.x }); gsap.set(cH, { y: pos.y }); gsap.set(cD, { x: pos.x, y: pos.y }); requestAnimationFrame(renderC); }
+                var gTl = gsap.timeline({ paused: true }).fromTo({ turb: 1 }, { turb: 1 }, { turb: 0, duration: 0.5, ease: 'power1', onUpdate: function () { var v = this.targets()[0].turb; if (fX) fX.setAttribute('baseFrequency', v.toString()); if (fY) fY.setAttribute('baseFrequency', v.toString()); }, onStart: function () { cH.style.filter = 'url(#cursor-noise-x)'; cV.style.filter = 'url(#cursor-noise-y)'; }, onComplete: function () { cH.style.filter = 'none'; cV.style.filter = 'none'; } });
+                document.addEventListener('mouseover', function (e) { if (e.target.closest('a,button,[data-nav],.menu-morph,.bento-card,.nav-link')) { gTl.restart(); gsap.to(cD, { scale: 2, borderColor: '#E11D2A', duration: 0.2 }); } });
+                document.addEventListener('mouseout', function (e) { if (e.target.closest('a,button,[data-nav],.menu-morph,.bento-card,.nav-link')) gsap.to(cD, { scale: 1, borderColor: '#E11D2A', duration: 0.2 }); });
+                window.addEventListener('blur', function () { hidden = true; gsap.to([cH, cV, cD], { opacity: 0, duration: 0.2 }); });
+                window.addEventListener('focus', function () { if (running && hidden) { hidden = false; gsap.to([cH, cV, cD], { opacity: 1, duration: 0.3 }); } });
+            })();
+
+            /* ============================
+               TERMINAL TYPEWRITER
+               ============================ */
+            var terminalTyped = false;
+            function initTerminalTypewriter() {
+                if (terminalTyped) return; terminalTyped = true;
+                var schema = JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "name": "Acetech Repair and Phones Accessories", "telephone": "09684589577", "address": { "@type": "PostalAddress", "streetAddress": "104 Rizal Avenue Extension, East Tapinac", "addressLocality": "Olongapo City", "addressRegion": "Zambales", "postalCode": "2200", "addressCountry": "PH" }, "geo": { "@type": "GeoCoordinates", "latitude": 14.8276663, "longitude": 120.2798901 }, "sameAs": ["https://www.facebook.com/Acetech07"] }, null, 2);
+                var hl = schema.replace(/"([^"]+)":/g, '<span class="json-key">"$1"</span>:').replace(/: "([^"]+)"/g, ': <span class="json-str">"$1"</span>').replace(/: (\d+\.?\d*)/g, ': <span class="json-num">$1</span>');
+                var body = document.getElementById('terminalBody'); body.innerHTML = ''; var idx = 0;
+                function type() { if (idx >= hl.length) return; if (hl[idx] === '<') { var ci = hl.indexOf('>', idx); if (ci !== -1) { body.innerHTML += hl.substring(idx, ci + 1); idx = ci + 1; } } else { body.innerHTML += hl[idx]; idx++; } setTimeout(type, (hl[idx] === ' ' || hl[idx] === '\n') ? 1 : 3); }
+                ScrollTrigger.create({ trigger: '#terminal-section', start: 'top 80%', once: true, onEnter: type });
+            }
+
+            /* ============================
+               3D TUNNEL
+               ============================ */
+            function initServicesTunnel() {
+                var world = document.getElementById('svc-world');
+                var section = document.getElementById('services-section');
+                if (!world || !section) return;
+
+                var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                var isMobile = window.innerWidth < 768;
+                var MAX_PER_CARD = 5;
+
+                var CATS = [
+                    { name: 'MOBILE DEVICES', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e11d2a" viewBox="0 0 256 256"><path d="M192,56V200H64V56Z" opacity="0.2"></path><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"></path></svg>', items: ['iPhone Screen Replacement', 'Android LCD Repair', 'Battery Replacement', 'Charging Port Repair', 'Water Damage Restoration', 'Face ID / Camera Repair', 'Speaker & Mic Repair', 'Jailbreak & Software Recovery', 'iOS / Android Flashing', 'Back Glass Replacement'] },
+                    { name: 'BOARD REPAIR', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e11d2a" viewBox="0 0 256 256"><path d="M208,40H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V48A8,8,0,0,0,208,40ZM88,184a16,16,0,1,1,16-16A16,16,0,0,1,88,184Zm80-64a16,16,0,1,1,16-16A16,16,0,0,1,168,120Z" opacity="0.2"></path><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM88,160a8,8,0,1,1-8,8A8,8,0,0,1,88,160ZM48,48H80v97.38a24,24,0,1,0,16,0V115.31l48,48V208H48ZM208,208H160V160a8,8,0,0,0-2.34-5.66L96,92.69V48h32V72a8,8,0,0,0,2.34,5.66l16,16A23.74,23.74,0,0,0,144,104a24,24,0,1,0,24-24,23.74,23.74,0,0,0-10.34,2.35L144,68.69V48h64V208ZM168,96a8,8,0,1,1-8,8A8,8,0,0,1,168,96Z"></path></svg>', items: ['Micro-Soldering', 'Logic Board Diagnostics', 'Short Circuit Detection', 'IC Chip Replacement', 'No Power / Dead Boot Repair', 'BIOS Recovery', 'EFI Unlock'] },
+                    { name: 'LAPTOP & PC', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e11d2a" viewBox="0 0 256 256"><path d="M216,72V176H40V72A16,16,0,0,1,56,56H200A16,16,0,0,1,216,72Z" opacity="0.2"></path><path d="M232,168h-8V72a24,24,0,0,0-24-24H56A24,24,0,0,0,32,72v96H24a8,8,0,0,0-8,8v16a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V176A8,8,0,0,0,232,168ZM48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8v96H48ZM224,192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8v-8H224ZM152,88a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,88Z"></path></svg>', items: ['Motherboard Repair', 'SSD / RAM Upgrade', 'Overheating Fix', 'OS Installation', 'Data Recovery', 'GPU Reballing'] },
+                    { name: 'ACCESSORIES', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e11d2a" viewBox="0 0 256 256"><path d="M179.64,160H76.36L128,72.62Z" opacity="0.2"></path><path d="M64.34,196.07l-9.45,16a8,8,0,1,1-13.78-8.14l9.46-16a8,8,0,1,1,13.77,8.14ZM232,152H184.2l-30.73-52a8,8,0,1,0-13.77,8.14l61.41,103.93a8,8,0,0,0,13.78-8.14L193.66,168H232a8,8,0,0,0,0-16Zm-89.53,0H90.38L158.89,36.07a8,8,0,0,0-13.78-8.14L128,56.89l-17.11-29a8,8,0,1,0-13.78,8.14l21.6,36.55L71.8,152H24a8,8,0,0,0,0,16H142.47a8,8,0,1,0,0-16Z"></path></svg>', items: ['Tempered Glass', 'Phone Cases & Covers', 'Chargers & Cables', 'Power Banks', 'Screen Protector Install'] }
+                ];
+
+                // Build sequence: category name once, then all its cards
+                var sequence = [];
+                CATS.forEach(function (cat) {
+                    sequence.push({ type: 'text', label: cat.name });
+                    var totalCards = Math.ceil(cat.items.length / MAX_PER_CARD);
+                    for (var c = 0; c < totalCards; c++) {
+                        var slice = cat.items.slice(c * MAX_PER_CARD, (c + 1) * MAX_PER_CARD);
+                        var cardNum = totalCards > 1 ? ' [' + (c + 1) + '/' + totalCards + ']' : '';
+                        sequence.push({ type: 'card', icon: cat.icon, catName: cat.name + cardNum, items: slice, cardIdx: c });
+                    }
+                });
+
+                /* ── Layout constants ── */
+                var Z_GAP = 650;
+                var TEXT_Y_OFFSET = -100; // category text floats above the cards
+                var CARD_X_SPREAD = isMobile ? 0 : 170;
+                var CARD_ROT = isMobile ? 0 : 2.5;
+
+                var items3d = [];
+                var textElements = []; // refs for scroll-fill toggling
+                var slotIdx = 0;
+
+                sequence.forEach(function (entry) {
+                    var el = document.createElement('div'); el.className = 'svc-3d-item';
+
+                    if (entry.type === 'text') {
+                        var big = document.createElement('div'); big.className = 'svc-big-text'; big.textContent = entry.label;
+                        el.appendChild(big); world.appendChild(el);
+                        textElements.push(big);
+                        items3d.push({ el: el, type: 'text', baseZ: -slotIdx * Z_GAP, x: 0, y: TEXT_Y_OFFSET, rot: 0, catName: entry.label, visible: false });
+                    } else {
+                        var card = document.createElement('div'); card.className = 'svc-card';
+                        card.innerHTML = '<div class="svc-card-header"><span class="svc-card-id">' + entry.icon + ' ' + entry.catName + '</span><div class="svc-card-dot"></div></div><div class="svc-card-services">' + entry.items.map(function (it, j) { return '<div class="svc-card-item"><span class="svc-item-num">0' + (j + 1) + '</span>' + it + '</div>'; }).join('') + '</div>';
+                        el.appendChild(card); world.appendChild(el);
+
+                        var xPos = (entry.cardIdx % 2 === 0) ? CARD_X_SPREAD : -CARD_X_SPREAD;
+                        var rot = (entry.cardIdx % 2 === 0) ? -CARD_ROT : CARD_ROT;
+                        items3d.push({ el: el, type: 'card', baseZ: -slotIdx * Z_GAP, x: xPos, y: 0, rot: rot, catName: entry.catName, visible: false, _cardIdx: entry.cardIdx });
+                    }
+
+                    el.style.display = 'none';
+                    slotIdx++;
+                });
+
+                var totalDepth = slotIdx * Z_GAP;
+                section.style.height = Math.max(4200, totalDepth * 0.8) + 'px';
+                var hudVel = document.getElementById('svc-hud-vel');
+                var hudCat = document.getElementById('svc-hud-cat');
+
+                // Scroll measurement
+                var sectionTop = 0, sectionH = 0, tunnelActive = false;
+                function measureSection() {
+                    var r = section.getBoundingClientRect();
+                    sectionTop = r.top + window.pageYOffset;
+                    sectionH = section.offsetHeight;
+                    // Recalc mobile on resize / orientation change
+                    isMobile = window.innerWidth < 768;
+                    updateMobileLayout();
+                }
+
+                // Live-update card positions when crossing the mobile breakpoint
+                function updateMobileLayout() {
+                    var spread = isMobile ? 0 : 170;
+                    var rotation = isMobile ? 0 : 2.5;
+                    for (var i = 0; i < items3d.length; i++) {
+                        var item = items3d[i];
+                        if (item.type === 'card') {
+                            var idx = item._cardIdx || 0;
+                            item.x = (idx % 2 === 0) ? spread : -spread;
+                            item.rot = (idx % 2 === 0) ? -rotation : rotation;
+                        }
+                    }
+                }
+
+                measureSection();
+                window.addEventListener('resize', measureSection);
+
+                // Pause rendering when off-screen
+                var tunnelObs = new IntersectionObserver(function (entries) {
+                    tunnelActive = entries[0].isIntersecting;
+                }, { rootMargin: '200px 0px' });
+                tunnelObs.observe(section);
+
+                /* ── Scroll-idle detector: toggles .is-scrolling on category text ──
+                   CSS transition handles the smooth fade back to stroke-only */
+                var scrollIdleTimer = null;
+                var isUserScrolling = false;
+
+                function onScrollActivity() {
+                    if (!isUserScrolling) {
+                        isUserScrolling = true;
+                        for (var t = 0; t < textElements.length; t++) {
+                            textElements[t].classList.add('is-scrolling');
+                        }
+                    }
+                    clearTimeout(scrollIdleTimer);
+                    scrollIdleTimer = setTimeout(function () {
+                        isUserScrolling = false;
+                        for (var t = 0; t < textElements.length; t++) {
+                            textElements[t].classList.remove('is-scrolling');
+                        }
+                    }, 300);
+                }
+                window.addEventListener('scroll', onScrollActivity, { passive: true });
+
+                /* ── Reduced motion: show everything static, skip the rAF loop ── */
+                if (prefersReduced) {
+                    items3d.forEach(function (item) {
+                        item.el.style.display = 'flex';
+                        item.el.style.opacity = '1';
+                        item.el.style.transform = 'translate3d(' + item.x + 'px,' + item.y + 'px, 0px)';
+                    });
+                    return;
+                }
+
+                var lastScroll = -1;
+                var VIZ_FAR = -2200;
+                var VIZ_NEAR = 500;
+                var FADE_IN_START = -1500;
+                var FADE_OUT_START = 100;
+
+                function render(time) {
+                    requestAnimationFrame(render);
+                    if (!tunnelActive) return;
+
+                    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    if (Math.abs(scrollY - lastScroll) < 0.5) return;
+                    lastScroll = scrollY;
+
+                    var scrolled = Math.max(0, scrollY - sectionTop);
+                    var maxScroll = Math.max(1, sectionH - window.innerHeight);
+                    var progress = Math.min(1, scrolled / maxScroll);
+                    var cameraZ = progress * totalDepth;
+                    var activeCat = '';
+
+                    for (var i = 0; i < items3d.length; i++) {
+                        var item = items3d[i];
+                        var vizZ = item.baseZ + cameraZ;
+
+                        // Visibility gate
+                        var shouldShow = (vizZ > VIZ_FAR && vizZ < VIZ_NEAR);
+                        if (shouldShow !== item.visible) {
+                            item.visible = shouldShow;
+                            item.el.style.display = shouldShow ? 'flex' : 'none';
+                        }
+                        if (!shouldShow) continue;
+
+                        // Edge fade
+                        var alpha = 1;
+                        if (vizZ < FADE_IN_START) alpha = (vizZ - VIZ_FAR) / (FADE_IN_START - VIZ_FAR);
+                        if (vizZ > FADE_OUT_START) alpha = Math.max(0, 1 - (vizZ - FADE_OUT_START) / (VIZ_NEAR - FADE_OUT_START));
+                        alpha = Math.max(0, Math.min(1, alpha));
+                        item.el.style.opacity = alpha < 0.01 ? '0' : alpha.toFixed(2);
+                        if (alpha < 0.01) continue;
+
+                        // Gentle float
+                        var floatY = Math.sin(time * 0.0007 + item.baseZ * 0.003) * 7;
+                        var rot = item.rot || 0;
+
+                        // Single path — no Firefox fork
+                        item.el.style.transform = 'translate3d(' + item.x + 'px,' + (item.y + floatY) + 'px,' + vizZ + 'px) rotateZ(' + rot + 'deg)';
+
+                        if (item.type === 'text' && vizZ > -Z_GAP * 0.5 && vizZ < Z_GAP) { activeCat = item.catName; }
+                    }
+
+                    if (hudVel) hudVel.textContent = Math.round(progress * 100) + '%';
+                    if (hudCat && activeCat) hudCat.textContent = activeCat;
+                }
+                requestAnimationFrame(render);
+            }
+
+            /* ============================
+               ACETECH FONT ANIMATION
+               ============================ */
+            (function initAcetechFont() {
+                var title = document.getElementById('acetech-font-title');
+                if (!title) return;
+                var str = title.innerText;
+                title.innerHTML = '';
+                var charEls = [];
+                var fontMouse = { x: 0, y: 0 };
+                var fontCursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+                for (var i = 0; i < str.length; i++) {
+                    var span = document.createElement('span');
+                    span.textContent = str[i];
+                    title.appendChild(span);
+                    charEls.push(span);
+                }
+
+                function setSize() {
+                    var containerWidth = title.parentElement.getBoundingClientRect().width;
+                    var fontSize = containerWidth / (str.length / 1.6);
+                    var maxFontSize = Math.min(fontSize, containerWidth / str.length * 1.3);
+                    title.style.fontSize = maxFontSize + 'px';
+                }
+                setSize();
+                window.addEventListener('resize', setSize);
+
+                window.addEventListener('mousemove', function (e) {
+                    fontCursor.x = e.clientX;
+                    fontCursor.y = e.clientY;
+                });
+                window.addEventListener('touchmove', function (e) {
+                    var t = e.touches[0];
+                    fontCursor.x = t.clientX;
+                    fontCursor.y = t.clientY;
+                }, { passive: true });
+
+                function distCalc(a, b) {
+                    var dx = b.x - a.x, dy = b.y - a.y;
+                    return Math.sqrt(dx * dx + dy * dy);
+                }
+
+                function animateFont() {
+                    fontMouse.x += (fontCursor.x - fontMouse.x) / 15;
+                    fontMouse.y += (fontCursor.y - fontMouse.y) / 15;
+                    var maxDist = title.getBoundingClientRect().width / 2;
+                    // inside animateFont()
+                    var isMobile = window.innerWidth < 768;
+                    var scale = isMobile
+                        ? 0.75 + influence * 0.35
+                        : 0.6 + influence * 0.6;
+                    var translateY = isMobile
+                        ? (1 - influence) * 4
+                        : (1 - influence) * 8;
+                    for (var i = 0; i < charEls.length; i++) {
+                        var rect = charEls[i].getBoundingClientRect();
+                        var charCenter = { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 };
+                        var dist = distCalc(fontMouse, charCenter);
+                        var influence = Math.max(0, 1 - dist / maxDist);
+                        var scale = 0.6 + influence * 0.6;
+                        var opacity = (0.15 + influence * 0.85).toFixed(2);
+                        var translateY = (1 - influence) * 8;
+                        charEls[i].style.opacity = opacity;
+                        charEls[i].style.transform = 'scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+                    }
+                    requestAnimationFrame(animateFont);
+                }
+                animateFont();
+            })();
+
+        })();
+    </script>
+</body>
+
+</html>
