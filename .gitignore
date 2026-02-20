@@ -1,8 +1,78 @@
-  # OS files
-  Thumbs.db
-  .DS_Store
-  desktop.ini
+# ========================
+# OS-generated files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-  # Editor folders
-  .vscode/
-  .idea/
+# ========================
+# Editor / IDE
+# ========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ========================
+# Dependencies (if any)
+# ========================
+node_modules/
+package-lock.json
+yarn.lock
+.pnp.*
+
+# ========================
+# Build artifacts
+# ========================
+dist/
+build/
+.cache/
+.parcel-cache/
+*.min.js
+*.min.css
+*.map
+
+# ========================
+# Environment / secrets
+# ========================
+.env
+.env.*
+*.pem
+
+# ========================
+# Logs
+# ========================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Images — originals only
+# Keep AVIF exports, ignore
+# bulky source files
+# ========================
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xd
+
+# ========================
+# Misc
+# ========================
+.vercel
+.netlify
+.surge
+*.zip
+*.tar.gz
