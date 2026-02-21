@@ -263,15 +263,22 @@
         /* NAVBAR */
         #navbar {
             position: fixed;
+            width: 85%;
             top: 0;
-            left: 0;
-            right: 0;
+            left: 7.5%;
             z-index: 1000;
             padding: 1.25rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: background 0.3s ease;
+        }
+
+        @media (max-width: 640px) {
+            #navbar {
+                width: 100%;
+                left: 0;
+            }
         }
 
         .nav-logo {
@@ -753,6 +760,8 @@
             color: rgba(255, 255, 255, 0.35);
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            width: 80%;
+            left: 10%;
         }
 
         .svc-hud-row,
@@ -928,6 +937,8 @@
 
             #svc-hud {
                 inset: 1rem;
+                width: 90%;
+                left: 5%;
             }
         }
 
