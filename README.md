@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="acetech-logo.avif" alt="Acetech Repair Logo" height="60">
+  <img src="assets/images/acetech-logo.avif" alt="Acetech Repair Logo" height="60">
 </p>
 
 <h1 align="center">⚡ AceTech Repair & Phone Accessories</h1>
@@ -19,7 +19,7 @@
 ## 🖥️ Preview
 
 <p align="center">
-  <img src="https://github.com/ravjansky/AceTech/raw/main/webclip.png" alt="AceTech Preview" width="200">
+  <img src="https://github.com/ravjansky/AceTech/raw/main/assets/webclip/webclip.png" alt="AceTech Preview" width="200">
 </p>
 
 A **cyber-industrial single-page application** built for [Acetech Repair and Phones Accessories](https://www.facebook.com/Acetech07), located at **104 Rizal Avenue Extension, East Tapinac, Olongapo City, Zambales, Philippines**.
@@ -157,15 +157,20 @@ npx serve .
 
 ```
 AceTech/
-├── index.html           # Entire SPA — markup, styles (~1,590 lines), scripts (~1,150 lines)
-├── Aero.ttf             # Custom display font
-├── acetech-logo.avif    # Logo (navbar + footer)
-├── phone-inner.avif     # Phone internals image (hero)
-├── phone-outer.avif     # Phone casing overlay (hero canvas compositing)
-├── favicon.ico          # Favicon (ICO format)
-├── favicon.png          # Favicon (PNG fallback)
-├── favicon.avif         # Favicon (AVIF — modern browsers)
-├── webclip.png          # iOS home screen icon (256×256)
+├── index.html                   # Entire SPA — markup, styles (~1,590 lines), scripts (~1,150 lines)
+├── assets/
+│   ├── fonts/
+│   │   └── Aero.ttf             # Custom display font
+│   ├── images/
+│   │   ├── acetech-logo.avif    # Logo (navbar + footer)
+│   │   ├── phone-inner.avif     # Phone internals image (hero)
+│   │   └── phone-outer.avif     # Phone casing overlay (hero canvas compositing)
+│   ├── favicons/
+│   │   ├── favicon.ico          # Favicon (ICO format)
+│   │   ├── favicon.png          # Favicon (PNG fallback)
+│   │   └── favicon.avif         # Favicon (AVIF — modern browsers)
+│   └── webclip/
+│       └── webclip.png          # iOS home screen icon (256×256)
 ├── .gitignore
 └── README.md
 ```
