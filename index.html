@@ -286,7 +286,7 @@
             position: absolute;
             width: 100%;
             height: 1px;
-            background: rgba(var(--white-rgb), 0.15);
+            background: rgba(var(--white-rgb), 0.4);
             pointer-events: none;
             opacity: 0;
             will-change: transform;
@@ -296,7 +296,7 @@
             position: absolute;
             height: 100%;
             width: 1px;
-            background: rgba(var(--white-rgb), 0.15);
+            background: rgba(var(--white-rgb), 0.4);
             pointer-events: none;
             opacity: 0;
             will-change: transform;
@@ -304,14 +304,42 @@
 
         .cursor-dot {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
+            width: 24px;
+            height: 24px;
             pointer-events: none;
             opacity: 0;
             will-change: transform;
             transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Crosshair edges */
+            background-image:
+                linear-gradient(var(--accent), var(--accent)),
+                linear-gradient(var(--accent), var(--accent)),
+                linear-gradient(var(--accent), var(--accent)),
+                linear-gradient(var(--accent), var(--accent));
+            background-size:
+                2px 7px,
+                2px 7px,
+                7px 2px,
+                7px 2px;
+            background-position:
+                center top,
+                center bottom,
+                left center,
+                right center;
+            background-repeat: no-repeat;
+            filter: drop-shadow(0 0 4px rgba(225, 29, 42, 0.4));
+        }
+
+        /* Central precision dot */
+        .cursor-dot::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
         }
 
         /* NAVBAR */
