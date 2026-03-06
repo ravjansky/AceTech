@@ -129,6 +129,21 @@
             color: var(--white);
             overflow-x: hidden;
             cursor: none;
+            transition: background-color 0.7s ease, color 0.7s ease;
+        }
+
+        /* Theme transition for all key elements */
+        #navbar,
+        #trust-strip,
+        #services-section,
+        .svc-card,
+        .bento-card,
+        .footer,
+        #boot-loader,
+        .btn-primary,
+        .btn-ghost,
+        #nav-overlay {
+            transition: background-color 0.7s ease, color 0.7s ease, border-color 0.7s ease;
         }
 
         @media (pointer: coarse) {
@@ -488,8 +503,7 @@
         /* --- Right: phone column — dramatic bottom clip --- */
         .hero-phone-col {
             position: relative;
-            width: 50%;
-            max-width: 550px;
+            width: 60%;
             z-index: 1;
             pointer-events: auto;
             display: flex;
@@ -506,13 +520,17 @@
             opacity: 0;
         }
 
+        #phone-canvas {
+            transition: opacity 0.7s ease;
+        }
+
         /* Red ambient glow behind the phone */
         .hero-phone-inner::before {
             content: '';
             position: absolute;
             top: 30%;
             left: 50%;
-            /* transform: translateX(-50%); */
+            transform: translateX(-50%);
             width: 70%;
             height: 60%;
             background: radial-gradient(ellipse, var(--hero-bg-accent) 0%, transparent 70%);
@@ -715,15 +733,17 @@
             }
 
             .hero-phone-col {
-                width: 220px;
+                width: 100vw;
+                max-width: 100vw;
                 order: 0;
                 /* phone on top on mobile */
                 align-self: center;
                 margin-bottom: -1rem;
+                margin-left: calc(-1 * (100vw - 100%) / 2);
             }
 
             .hero-phone-inner {
-                transform: translateY(0);
+                transform: translateY(50%) scale(1.2) !important;
                 /* no clip on mobile */
             }
 
@@ -2060,6 +2080,8 @@
                             if (moon) moon.style.display = 'none';
                         });
                     }
+                    // Swap phone outer image based on theme
+                    updatePhoneOuterImage(isDark);
                 }
 
                 var savedTheme = localStorage.getItem('acetech-theme');
@@ -2076,6 +2098,25 @@
                     });
                 });
             })();
+
+            /* Phone outer image swap helper — called by setTheme */
+            var _phoneOuterImg = null; // will be set by initPhoneEffect
+            function updatePhoneOuterImage(isDark) {
+                var newSrc = isDark
+                    ? 'assets/images/phone-outer.avif'
+                    : 'assets/images/phone-outer-white.avif';
+                if (_phoneOuterImg && _phoneOuterImg.src.indexOf(newSrc.split('/').pop()) === -1) {
+                    var canvas = document.getElementById('phone-canvas');
+                    if (canvas) {
+                        canvas.style.opacity = '0';
+                        setTimeout(function () {
+                            _phoneOuterImg.src = newSrc;
+                        }, 350);
+                    } else {
+                        _phoneOuterImg.src = newSrc;
+                    }
+                }
+            }
 
             /* ============================
                BUSINESS HOURS (PH TIME)
@@ -2312,6 +2353,7 @@
                 var wrapper = document.getElementById('hero-gridscan'); var canvas = document.getElementById('gridscan-canvas');
                 if (!wrapper || !canvas) return;
                 var isMobile = window.matchMedia('(pointer:coarse)').matches;
+                if (isMobile) return; // disable grid scan on mobile
                 var gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false });
                 if (!gl) return;
                 gl.getExtension('OES_standard_derivatives');
@@ -2335,11 +2377,11 @@
                         var d = document.documentElement.classList.contains("dark-mode");
                         // Light: medium-gray lines (visible but not blocking text) + punchy red scan
                         // Dark: original deep-red lines + full-strength red scan pulse
-                        this.linesColor  = d ? [0.18, 0.06, 0.08] : [0.72, 0.72, 0.72];
-                        this.scanColor   = d ? [0.88, 0.11, 0.16] : [0.88, 0.11, 0.16];
+                        this.linesColor = d ? [0.18, 0.06, 0.08] : [0.72, 0.72, 0.72];
+                        this.scanColor = d ? [0.88, 0.11, 0.16] : [0.88, 0.11, 0.16];
                         this.lineThickness = d ? (isMobile ? 0.8 : 1.2) : (isMobile ? 0.5 : 0.9);
                         this.scanOpacity = d ? 0.75 : 0.55;
-                        this.scanGlow    = d ? 0.8  : 0.7;
+                        this.scanGlow = d ? 0.8 : 0.7;
                     },
                     gridScale: 0.1,
                     lineThickness: isMobile ? 0.8 : 1.2,
@@ -2402,14 +2444,23 @@
 
                 var ctx = phoneCanvas.getContext('2d');
                 var outerImg = new Image();
-                outerImg.src = 'assets/images/phone-outer.avif';
+                // Set initial src based on current theme
+                var isDarkNow = document.documentElement.classList.contains('dark-mode');
+                outerImg.src = isDarkNow ? 'assets/images/phone-outer.avif' : 'assets/images/phone-outer-white.avif';
+                _phoneOuterImg = outerImg; // expose for theme toggle swap
+
+                // Re-show canvas after new image loads (for theme swap crossfade)
+                outerImg.addEventListener('load', function () {
+                    var canvas = document.getElementById('phone-canvas');
+                    if (canvas) canvas.style.opacity = '1';
+                });
 
                 var mouseX = -9999, mouseY = -9999, lerpX = -9999, lerpY = -9999;
                 var isOver = false, frame = 0, hasActiveBlocks = false;
                 var blockNoise = [], blockReveal = [];
                 var BLOCK = 16, RADIUS = 400, cols = 0, rows = 0, LERP = 0.08;
                 var STAGGER_SPEED = 0.12, FADE_SPEED = 0.06;
-                var MAX_CANVAS = 600;
+                var MAX_CANVAS = 900;
                 var canvasScale = 1;
 
                 outerImg.onload = function () {
