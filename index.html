@@ -317,9 +317,9 @@
         /* NAVBAR */
         #navbar {
             position: fixed;
-            width: 85%;
+            width: 90%;
             top: 0;
-            left: 7.5%;
+            left: 5%;
             z-index: 1000;
             padding: 1.25rem 2rem;
             display: flex;
@@ -494,7 +494,8 @@
             max-width: 620px;
             width: 50%;
             flex-shrink: 0;
-            padding-top: 20dvh;
+            padding-top: 15dvh;
+            transform: translateX(10%);
         }
 
         /* --- Right: phone column — absolute so it doesn't push layout --- */
@@ -741,10 +742,11 @@
                 z-index: 3;
                 width: 100%;
                 max-width: 100%;
-                transform: translateY(20%);
                 text-align: center;
                 padding-top: 0;
                 padding-bottom: 0;
+                padding-top: 20dvh;
+                transform: translateX(0%);
                 order: 1;
             }
 
@@ -2436,6 +2438,9 @@
                 var innerImg = document.getElementById('phone-inner-img');
                 if (!phoneCanvas || !innerImg || !hero) return;
 
+                // Disable glitch effects on mobile — keep only the clean pixelized mask
+                var isMobilePhone = window.matchMedia('(pointer:coarse)').matches || window.innerWidth < 768;
+
                 var ctx = phoneCanvas.getContext('2d');
                 var outerImg = new Image();
                 // Set initial src based on current theme
@@ -2514,7 +2519,8 @@
                         return;
                     }
 
-                    if (frame % 6 === 0) {
+                    // Re-randomize noise only on desktop (glitch shimmer)
+                    if (!isMobilePhone && frame % 6 === 0) {
                         for (var r = 0; r < rows; r++)
                             for (var c = 0; c < cols; c++)
                                 if (Math.random() < 0.04) blockNoise[r][c] = Math.random();
@@ -2547,14 +2553,16 @@
 
                             if (blockReveal[r][c] > 0.15) {
                                 var gx = 0;
-                                if (frame % 3 === 0 && Math.random() > 0.92)
+                                // Horizontal glitch offset only on desktop
+                                if (!isMobilePhone && frame % 3 === 0 && Math.random() > 0.92)
                                     gx = Math.round((Math.random() - 0.5) * 2) * BLOCK;
                                 ctx.clearRect(c * BLOCK + gx, r * BLOCK, BLOCK, BLOCK);
                             }
                         }
                     }
 
-                    if (lerpX > -9000 && frame % 5 === 0 && Math.random() > 0.6) {
+                    // Random scan-line bars only on desktop
+                    if (!isMobilePhone && lerpX > -9000 && frame % 5 === 0 && Math.random() > 0.6) {
                         var ly = Math.round(lerpY / BLOCK) * BLOCK + Math.round((Math.random() - 0.5) * 4) * BLOCK;
                         var lw = BLOCK * (3 + Math.floor(Math.random() * 6));
                         var lx = Math.round(lerpX / BLOCK) * BLOCK - lw / 2;
